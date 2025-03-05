@@ -52,7 +52,7 @@
         <div class="row mt-4">
             <div class="col-md-6 mb-4">
                 <h5 class="footer-title">Boost your visibility</h5>
-                <a href="{{route('user-login')}}">
+                <a href="{{url('login')}}">
                     <button class="btn btn-primary rounded-pill w-100">
                         <i class="fas fa-calendar-plus me-2"></i>POST YOUR AD
                     </button>

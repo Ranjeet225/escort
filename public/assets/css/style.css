@@ -412,7 +412,12 @@ p {
     width: 100%;
     height: 100vh;
     background: url('../images/banner/home.webp') center/cover no-repeat;
+}
 
+@media (max-width: 768px) {
+    .hero-section::before {
+        background: url('../images/banner/trans1.jpg') center/cover no-repeat;
+    }
 }
 
 @keyframes pulse {

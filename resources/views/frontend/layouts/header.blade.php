@@ -22,7 +22,7 @@
                  <div class="user-icon me-3" id="userIconTrigger">
                      <i class="fas fa-user" data-target="#newModal" data-toggle="modal"></i>
                  </div>
-                 <a href="{{route('user-login')}}" class="text-decoration-none">
+                 <a href="{{url('login')}}" class="text-decoration-none">
                      <button class="btn btn-primary rounded-pill w-100">
                          <i class="fas fa-calendar-plus me-2"></i> POST YOUR AD
                      </button>

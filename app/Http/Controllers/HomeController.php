@@ -92,4 +92,9 @@ class HomeController extends Controller
     {
         return view('register');
     }
+
+    public function post_ads()
+    {
+        return view('post_ads');
+    }
 }
