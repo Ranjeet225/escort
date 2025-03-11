@@ -19,10 +19,23 @@
                  <div class="search-icon me-3">
                      <i class="fas fa-search" data-target="#travelSearchModal" data-toggle="modal"></i>
                  </div>
+                 @if (!Auth::check())
+                 <div class="dropdown">
+                    <a class="dropdown-toggle user-icon me-3" href="#" role="button" id="userIconTrigger" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userIconTrigger">
+                        <li><a class="dropdown-item" href="{{route('my-ads')}}">My Listing</a></li>
+                        <li><a class="dropdown-item" href="{{route('account')}}">Account</a></li>
+                        <li><a class="dropdown-item" href="{{route('logout')}}" >Logout</a></li>
+                    </ul>
+                </div>
+                @else 
                  <div class="user-icon me-3" id="userIconTrigger">
                      <i class="fas fa-user" data-target="#newModal" data-toggle="modal"></i>
                  </div>
-                 <a href="{{url('login')}}" class="text-decoration-none">
+                 @endif
+                 <a href="{{route('dashboard')}}" class="text-decoration-none">
                      <button class="btn btn-primary rounded-pill w-100">
                          <i class="fas fa-calendar-plus me-2"></i> POST YOUR AD
                      </button>
@@ -60,7 +73,7 @@
                              <i class="fas fa-user me-3"></i>
                              <span>My Account</span>
                          </div>
-                         <a href="main/login.html" class="text-decoration-none">
+                         <a href="{{route('dashboard')}}" class="text-decoration-none">
                              <button class="btn btn-primary rounded-pill w-100">
                                  <i class="fas fa-calendar-plus me-2"></i> POST YOUR AD
                              </button>

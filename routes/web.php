@@ -34,7 +34,7 @@ Route::middleware('guest')->group(function () {
     Route::get('reset-password/{token}', [NewPasswordController::class, 'create'])->name('password.reset');
     Route::post('reset-password', [NewPasswordController::class, 'store'])->name('password.store');
 });
-Route::middleware('auth')->group(function () {
+// Route::middleware('auth')->group(function () {
     Route::get('verify-email', EmailVerificationPromptController::class)->name('verification.notice');
     Route::get('verify-email/{id}/{hash}', VerifyEmailController::class)->middleware(['signed', 'throttle:6,1'])->name('verification.verify');
     Route::post('email/verification-notification', [EmailVerificationNotificationController::class, 'store'])->middleware('throttle:6,1')->name('verification.send');
@@ -43,12 +43,19 @@ Route::middleware('auth')->group(function () {
     Route::put('password', [PasswordController::class, 'update'])->name('password.update');
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
     Route::get('post-ads', [HomeController::class, 'post_ads'])->name('dashboard');
+    Route::post('post-ads', [HomeController::class, 'save_post_ads'])->name('post.ads.store');
+    Route::get('states', [HomeController::class, 'states'])->name('get.states');
+    Route::get('city', [HomeController::class, 'city'])->name('get.cities');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+    Route::get('/my-ads', [HomeController::class, 'my_ads'])->name('my-ads');
+    Route::get('/account', [HomeController::class, 'account'])->name('account');
+    Route::get('/settings', [HomeController::class, 'settings'])->name('settings');
+// });
 
-Route::get('/{action}', [HomeController::class, 'services'])->name('services');
+Route::get('/just-check', [HomeController::class, 'just_check'])->name('just-check');
+Route::get('/{action}', [HomeController::class, 'services'])->name('service');
 Route::get('/{action}/{places}', [HomeController::class, 'services'])->name('services');
 
 
