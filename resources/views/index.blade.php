@@ -5,7 +5,7 @@
  <!-- Hero Section -->
 <section class="hero-section">
     <div class="container">
-        <div class="hero-content text-white">
+        <div class="hero-content">
             <h1>Looking for a makeover?</h1>
             <h2>Glamo is for everyone</h2>
             <div class="search-bar mt-4">
@@ -38,13 +38,16 @@
             <div class="modal-body">
                 <h6 class="fw-bold">Publish and <span class="text-dark">Manage</span> your ads</h6>
                 <p class="text-muted">Have an account yet?</p>
-                <button class="btn btn-primary w-100 py-2 mb-3">
-                    <i class="fas fa-sign-in-alt"></i> LOGIN
-                </button>
-                <p class="text-muted">Don't have an account yet?</p>
-                <button class="btn btn-outline-primary w-100 py-2">
-                    <i class="fas fa-pencil-alt"></i> SIGN UP
-                </button>
+                
+                <a href="{{ route('login') }}" class="btn btn-login w-75 mb-4">
+                    <i class="fas fa-sign-in-alt me-2"></i> LOGIN
+                </a>
+
+                <p class="mb-3">Don't have an account yet?</p>
+
+                <a href="{{ route('signup') }}" class="btn btn-signup w-75">
+                    <i class="fas fa-user-plus me-2"></i> SIGN UP
+                </a>
             </div>
         </div>
     </div>

@@ -44,7 +44,7 @@
                 <h5>Change Email ID</h5>
                 <p>To change your email ID, you need to mail us directly. Click below to send an email to us.</p>
                 <p>Your current email ID is <a href="mailto:new@gmail.com" class="text-danger">new@gmail.com</a></p>
-                <a href="mailto:support@example.com" class="btn btn-outline-danger">Change Email 🔗</a>
+                {{-- <a href="mailto:support@example.com" class="btn btn-outline-danger">Change Email 🔗</a> --}}
             </div>
         </div>
     </div>

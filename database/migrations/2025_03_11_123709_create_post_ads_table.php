@@ -24,7 +24,10 @@ return new class extends Migration
             $table->string('details');
             $table->string('description');
             $table->integer('age');
+            $table->integer('views');
             $table->json('images');
+            $table->string('status')->default('pending');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });
     }

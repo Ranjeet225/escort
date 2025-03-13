@@ -387,14 +387,17 @@ p {
     display: none;
 }
 
-.nav-overlay.active {
+/* .nav-overlay.active {
     display: block;
-}
+} */
 
 /* Media queries */
 @media (max-width: 991.98px) {
     .desktop-nav {
         display: none !important;
+    }
+    .hero-content{
+        color: #ff1010d6 !important;
     }
 }
 /* ===== HERO SECTION ===== */
@@ -403,6 +406,7 @@ p {
     position: relative;
     overflow: hidden;
 }
+
 
 .hero-section::before {
     content: '';
@@ -418,6 +422,7 @@ p {
     .hero-section::before {
         background: url('../images/banner/trans1.jpg') center/cover no-repeat;
     }
+
 }
 
 @keyframes pulse {
@@ -434,6 +439,7 @@ p {
     z-index: 1;
     text-align: center;
     animation: fadeInUp 1s ease-out;
+    color: white;
 }
 
 @keyframes fadeInUp {

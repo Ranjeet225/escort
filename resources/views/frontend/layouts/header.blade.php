@@ -19,7 +19,7 @@
                  <div class="search-icon me-3">
                      <i class="fas fa-search" data-target="#travelSearchModal" data-toggle="modal"></i>
                  </div>
-                 @if (!Auth::check())
+                 @if (Auth::check())
                  <div class="dropdown">
                     <a class="dropdown-toggle user-icon me-3" href="#" role="button" id="userIconTrigger" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fas fa-user"></i>

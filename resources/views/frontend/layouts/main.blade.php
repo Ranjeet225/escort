@@ -130,7 +130,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     @yield('js')
 
-    <script src="assets/js/main.js"></script>
+    <script src="{{asset('assets/js/main.js')}}"></script>
     <script>
         $(document).ready(function() {
             // Show/hide button on scroll

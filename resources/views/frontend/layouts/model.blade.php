@@ -21,15 +21,15 @@
 
                 <p class="my-4">Already have an account?</p>
 
-                <button class="btn btn-login w-75 mb-4">
+                <a href="{{ route('login') }}" class="btn btn-login w-75 mb-4">
                     <i class="fas fa-sign-in-alt me-2"></i> LOGIN
-                </button>
+                </a>
 
                 <p class="mb-3">Don't have an account yet?</p>
 
-                <button class="btn btn-signup w-75">
+                <a href="{{ route('signup') }}" class="btn btn-signup w-75">
                     <i class="fas fa-user-plus me-2"></i> SIGN UP
-                </button>
+                </a>
 
                 <div class="benefits-section mt-5">
                     <h6 class="benefits-title">Member Benefits:</h6>

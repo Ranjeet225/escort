@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -34,14 +35,14 @@ Route::middleware('guest')->group(function () {
     Route::get('reset-password/{token}', [NewPasswordController::class, 'create'])->name('password.reset');
     Route::post('reset-password', [NewPasswordController::class, 'store'])->name('password.store');
 });
-// Route::middleware('auth')->group(function () {
+Route::middleware('auth')->group(function () {
     Route::get('verify-email', EmailVerificationPromptController::class)->name('verification.notice');
     Route::get('verify-email/{id}/{hash}', VerifyEmailController::class)->middleware(['signed', 'throttle:6,1'])->name('verification.verify');
     Route::post('email/verification-notification', [EmailVerificationNotificationController::class, 'store'])->middleware('throttle:6,1')->name('verification.send');
     Route::get('confirm-password', [ConfirmablePasswordController::class, 'show'])->name('password.confirm');
     Route::post('confirm-password', [ConfirmablePasswordController::class, 'store']);
     Route::put('password', [PasswordController::class, 'update'])->name('password.update');
-    Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+    Route::get('user-logout', [AdminController::class, 'logout'])->name('logout');
     Route::get('post-ads', [HomeController::class, 'post_ads'])->name('dashboard');
     Route::post('post-ads', [HomeController::class, 'save_post_ads'])->name('post.ads.store');
     Route::get('states', [HomeController::class, 'states'])->name('get.states');
@@ -50,9 +51,15 @@ Route::middleware('guest')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/my-ads', [HomeController::class, 'my_ads'])->name('my-ads');
+    Route::get('/edit-post-ad/{id}', [HomeController::class, 'edit_post_ads'])->name('edit.post.ads');
+    Route::post('/update-post-ad/{id}', [HomeController::class, 'update_post_ads'])->name('post.ads.update');
+    Route::delete('delete-post-ad', [HomeController::class, 'delete_post_ads'])->name('delete.post.ads');
     Route::get('/account', [HomeController::class, 'account'])->name('account');
     Route::get('/settings', [HomeController::class, 'settings'])->name('settings');
-// });
+    Route::get('admin', [AdminController::class, 'admin'])->name('admin');
+    Route::get('manage-users', [AdminController::class, 'manage_users'])->name('manage_users');
+    Route::post('/admin-update-post-ad/{id}', [AdminController::class, 'admin_update_post_ads'])->name('admin.post.ads.update');
+});
 
 Route::get('/just-check', [HomeController::class, 'just_check'])->name('just-check');
 Route::get('/{action}', [HomeController::class, 'services'])->name('service');

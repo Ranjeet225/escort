@@ -83,10 +83,10 @@
 
                 <hr class="my-4">
 
-                <h4 class="mb-4">Account management</h4>
-                <p>Control other options to manage your data, like deleting your account.</p>
+                {{-- <h4 class="mb-4">Account management</h4>
+                <p>Control other options to manage your data, like deleting your account.</p> --}}
 
-                <div class="d-flex justify-content-end mt-4">
+                {{-- <div class="d-flex justify-content-end mt-4">
                     <form method="POST" action="{{ route('profile.destroy') }}">
                         @csrf
                         @method('DELETE')
@@ -94,7 +94,7 @@
                             Delete Account (This will Permanently delete your  account and data.)
                         </button>
                     </form>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

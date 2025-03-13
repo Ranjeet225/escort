@@ -103,7 +103,7 @@
             <p>It's free and fast</p>
         </div>  
         <!-- Form Steps -->
-        <form action="{{ route('post.ads.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('post.ads.update', $postAd->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             <!-- Step 1: About You -->
             <div class="form-step" id="step1">
@@ -117,7 +117,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-user p-2"></i></span>
                         </div>
-                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}"  required>
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name', $postAd->name) }}"  required>
                         @error('name')
                             <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
@@ -129,7 +129,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">+91</span>
                         </div>
-                        <input type="text" class="form-control @error('phone') is-invalid @enderror" id="phone" name="phone" value="{{ old('phone') }}" placeholder="Enter your phone number" required>
+                        <input type="text" class="form-control @error('phone') is-invalid @enderror" id="phone" name="phone" value="{{ old('phone', $postAd->phone) }}" placeholder="Enter your phone number" required>
                         @error('phone')
                             <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
@@ -141,7 +141,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">+91</span>
                         </div>
-                        <input type="text" class="form-control @error('whatsapp') is-invalid @enderror" id="whatsapp" name="whatsapp" value="{{ old('whatsapp') }}" placeholder="Enter your whatsapp number" required >
+                        <input type="text" class="form-control @error('whatsapp') is-invalid @enderror" id="whatsapp" name="whatsapp" value="{{ old('whatsapp', $postAd->whatsapp) }}" placeholder="Enter your whatsapp number" required >
                         @error('whatsapp')
                             <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
@@ -154,7 +154,7 @@
                             <select class="form-control @error('country') is-invalid @enderror" id="country" name="country" required>
                                 <option value="">SELECT COUNTRY</option>
                                 @foreach ($countries as $country)
-                                    <option value="{{ $country->id }}" {{ $country->name == 'India' ? 'selected' : '' }}>{{ $country->name }}</option>
+                                    <option value="{{ $country->id }}" {{ $country->name == $postAd->country->name ? 'selected' : '' }}>{{ $country->name }}</option>
                                 @endforeach
                             </select>
                             @error('country')
@@ -164,6 +164,9 @@
                         <div class="col-md-6">
                             <select class="form-control @error('state') is-invalid @enderror" id="state" name="state" required>
                                 <option value="">SELECT STATE</option>
+                                @foreach ($states as $state)
+                                    <option value="{{ $state->id }}" {{ $state->name == $postAd->state->name ? 'selected' : '' }}>{{ $state->name }}</option>
+                                @endforeach
                             </select>
                             @error('state')
                                 <span class="invalid-feedback">{{ $message }}</span>
@@ -174,13 +177,16 @@
                         <div class="col-md-6">
                             <select class="form-control @error('city') is-invalid @enderror" id="city" name="city" required>
                                 <option value="">SELECT CITY</option>
+                                @foreach ($cities as $city)
+                                    <option value="{{ $city->id }}" {{ $city->name == $postAd->city->name ? 'selected' : '' }}>{{ $city->name }}</option>
+                                @endforeach
                             </select>
                             @error('city')
                                 <span class="invalid-feedback">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="col-md-6">
-                            <input type="text" class="form-control @error('locality') is-invalid @enderror" id="locality" name="locality" value="{{ old('locality') }}" placeholder="Enter locality" required >
+                            <input type="text" class="form-control @error('locality') is-invalid @enderror" id="locality" name="locality" value="{{ old('locality', $postAd->locality) }}" placeholder="Enter locality" required >
                             @error('locality')
                                 <span class="invalid-feedback">{{ $message }}</span>
                             @enderror
@@ -191,10 +197,10 @@
                     <label for="category">Category</label>
                     <select class="form-control @error('category') is-invalid @enderror" id="category" name="category" required>
                         <option value="">SELECT CATEGORY</option>
-                        <option value="Call Girls">Call Girls</option>
-                        <option value="Massages">Massages</option>
-                        <option value="Male Escorts">Male Escorts</option>
-                        <option value="Transsexuals">Transsexuals</option>
+                        <option value="Call Girls" {{ $postAd->category == 'Call Girls' ? 'selected' : '' }}>Call Girls</option>
+                        <option value="Massages" {{ $postAd->category == 'Massages' ? 'selected' : '' }}>Massages</option>
+                        <option value="Male Escorts" {{ $postAd->category == 'Male Escorts' ? 'selected' : '' }}>Male Escorts</option>
+                        <option value="Transsexuals" {{ $postAd->category == 'Transsexuals' ? 'selected' : '' }}>Transsexuals</option>
                     </select>
                     @error('category')
                         <span class="invalid-feedback">{{ $message }}</span>
@@ -202,14 +208,14 @@
                 </div>
                 <div class="form-group">
                     <label for="details">Enter Details</label>
-                    <input type="text" class="form-control @error('details') is-invalid @enderror" id="details" name="details" value="{{ old('details') }}" required>
+                    <input type="text" class="form-control @error('details') is-invalid @enderror" id="details" name="details" value="{{ old('details', $postAd->details) }}" required>
                     @error('details')
                         <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label for="description">Description</label>
-                    <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description" >{{ old('description') }}</textarea>
+                    <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description" >{{ old('description', $postAd->description) }}</textarea>
                     @error('description')
                         <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
@@ -224,21 +230,28 @@
                         <input type="file" id="imageUpload" class="hidden" name="images[]" accept="image/jpeg, image/png, image/webp" multiple >
                         <span class="upload-btn" onclick="document.getElementById('imageUpload').click()">Upload images</span>
                     </div>
-                    <div id="imagePreviewContainer" class="image-preview-container"></div>
+                    <div id="imagePreviewContainer" class="image-preview-container">
+                        @foreach (json_decode($postAd->images) as $image)
+                            <div class="preview-image">
+                                <img src="{{ asset($image) }}" alt="">
+                                <span class="remove-image" onclick="removeImage(this, {{ $image }})">X</span>
+                            </div>
+                        @endforeach
+                    </div>
                     @error('images.*')
                         <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label for="age">Age</label>
-                    <input type="number" class="form-control @error('age') is-invalid @enderror" id="age" name="age" value="{{ old('age') }}" >
+                    <input type="number" class="form-control @error('age') is-invalid @enderror" id="age" name="age" value="{{ old('age', $postAd->age) }}" >
                     @error('age')
                         <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
             <div class="form-step-buttons align-items-center">
-                <button type="submit" class="btn btn-primary"><i class="fas fa-share"></i> SUBMIT</button>
+                <button type="submit" class="btn btn-primary"><i class="fas fa-share"></i> UPDATE</button>
             </div>
         </form>
     </div>
@@ -247,8 +260,8 @@
 @section('js')
     <script>
         $(document).ready(function(){
-            $('#country').change(function(){
-                var countryId = $(this).val();
+            $('#state').click(function(){
+                var countryId = $('#country').val();
                 $.ajax({
                     url: "{{ route('get.states') }}",
                     method: "GET",
@@ -259,7 +272,7 @@
                         });
                     }
                 });
-            }).trigger('change');
+            });
             $('#state').change(function(){
                 var stateId = $(this).val();
                 $('#city').find('option').not(':first').remove();
@@ -366,5 +379,6 @@
         });
     </script>
 @endsection
+
 
 
