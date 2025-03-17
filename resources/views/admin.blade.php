@@ -27,6 +27,7 @@
                                     <th>Name</th>
                                     <th>Phone</th>
                                     <th>Whatsapp</th>
+                                    <th>Category</th>
                                     <th>Status</th>
                                     <th>Actions</th>
                                 </tr>
@@ -49,6 +50,7 @@
                                         </td>
                                         <td>{{ $postAd->phone }}</td>
                                         <td>{{ $postAd->whatsapp }}</td>
+                                        <td>{{ $postAd->category }}</td>
                                         <td>
                                             <div class="form-group mb-0">
                                                 <select class="form-control" name="status" id="status_{{ $postAd->id }}" onchange="changeStatus({{ $postAd->id }})">

@@ -37,10 +37,10 @@
                     <i class="fas fa-map-marker-alt text-primary me-2"></i> Noida Sector 19, India
                 </p>
                 <p class="text-muted small text-white">
-                    <i class="fas fa-envelope text-primary me-2"></i> <a href="mailto:info@vyom360.com" class="text-white">info@vyom360.com</a>
+                    <i class="fas fa-envelope text-primary me-2"></i> <a href="mailto:info@vyo0.com" class="text-white">info@v60.com</a>
                 </p>
                 <p class="text-muted small text-white">
-                    <i class="fas fa-phone text-primary me-2"></i> +91 7217645059
+                    <i class="fas fa-phone text-primary me-2"></i> +91 98434343
                 </p>
             </div>
         </div>
