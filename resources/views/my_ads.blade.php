@@ -50,7 +50,7 @@
         @include('sidebar')
         <div class="col-md-9">
             <div class="container mt-5">
-                @foreach ($postAds as $postAd)
+                @forelse ($postAds as $postAd)
                 <div class="ad-card d-flex flex-column flex-md-row align-items-start p-3">
                     @if ($postAd->images)
                         <img src="{{ asset(json_decode($postAd->images)[0]) }}" alt="Ad Image" class="ad-image me-3" style="width: 40%; height: 100%; object-fit: cover;">
@@ -70,7 +70,11 @@
                     </div>
                     <span class="badge bg-light text-dark">{{ $postAd->category }}</span>
                 </div>
-                @endforeach
+                @empty
+                 <div class="container mt-5">
+                    <h3>No ads found.</h3>
+                </div>
+                @endforelse
             </div>
         </div>
     </div>

@@ -117,7 +117,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-user p-2"></i></span>
                         </div>
-                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}"  required>
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}" placeholder="Enter your name"  required>
                         @error('name')
                             <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
@@ -146,6 +146,13 @@
                             <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
                     </div>
+                </div>
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" class="form-control @error('age') is-invalid @enderror" id="age" name="age" value="{{ old('age') }}"  placeholder="Enter your age" required>
+                    @error('age')
+                        <span class="invalid-feedback">{{ $message }}</span>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="location">Location</label>
@@ -194,15 +201,14 @@
                         <option value="Call Girls">Call Girls</option>
                         <option value="Massages">Massages</option>
                         <option value="Male Escorts">Male Escorts</option>
-                        <option value="Transsexuals">Transsexuals</option>
                     </select>
                     @error('category')
                         <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="details">Enter Details</label>
-                    <input type="text" class="form-control @error('details') is-invalid @enderror" id="details" name="details" value="{{ old('details') }}" required>
+                    <label for="details">Enter Title</label>
+                    <input type="text" class="form-control @error('details') is-invalid @enderror" id="details" name="details" value="{{ old('details') }}" placeholder="Enter title" required>
                     @error('details')
                         <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
@@ -230,9 +236,31 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="age">Age</label>
-                    <input type="number" class="form-control @error('age') is-invalid @enderror" id="age" name="age" value="{{ old('age') }}" >
-                    @error('age')
+                    <label class="title">Select Any 5 Services</label>
+                    <div class="services-checkboxes" style="display: flex; flex-wrap: wrap; gap: 10px;">
+                        @php
+                            $services = [
+                                'Anal Sex', 'BDSM', 'CIM - Cum In Mouth', 'COB - Cum On Body',
+                                'Couples', 'Deep throat', 'Domination', 'Face sitting', 'Fingering',
+                                'Fisting', 'Foot fetish', 'French kissing', 'GFE', 'Giving hardsports',
+                                'Receiving hardsports', 'Lap dancing', 'Massage', 'Nuru massage',
+                                'Oral sex - blowjob', 'OWO - Oral without condom', 'Parties',
+                                'Reverse oral', 'Giving rimming', 'Rimming receiving', 'Role play',
+                                'Sex toys', 'Spanking', 'Strapon', 'Striptease', 'Submissive',
+                                'Squirting', 'Tantric massage', 'Teabagging', 'Tie and tease',
+                                'Uniforms', 'Giving watersports', 'Receiving watersports', 'Webcam sex'
+                            ];
+                        @endphp
+                        @foreach ($services as $service)
+                            <div class="form-check" style="flex: 0 0 45%;">
+                                <input class="form-check-input" type="checkbox" name="services[]" value="{{ $service }}" id="service-{{ $loop->index }}">
+                                <label class="form-check-label" for="service-{{ $loop->index }}">
+                                    {{ $service }}
+                                </label>
+                            </div>
+                        @endforeach
+                    </div>
+                    @error('services')
                         <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
@@ -245,6 +273,19 @@
 </div>
 @endsection
 @section('js')
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('input[name="services[]"]');
+            const form = document.querySelector('form');
+            form.addEventListener('submit', function(event) {
+                const selected = Array.from(checkboxes).filter(checkbox => checkbox.checked);
+                if (selected.length <script 5) {
+                    event.preventDefault();
+                    alert('Please select at least 5 services.');
+                }
+            });
+        });
+    </script>
     <script>
         $(document).ready(function(){
             $('#country').change(function(){

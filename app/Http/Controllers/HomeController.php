@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\State;
 use Illuminate\Container\Attributes\DB;
 use Illuminate\Http\Request;
+
+use function PHPSTORM_META\map;
 
 class HomeController extends Controller
 {
@@ -12,12 +15,50 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $states =State::where('country_id', '101')->get();
+        $postAds = \App\Models\PostAd::with('country','state', 'city')->where('status','approved')->latest()->take(10)->get();
+        return view('index',compact('states', 'postAds'));
     }
 
     public function services($action)
     {
-        return view('services', array('action' => $action));
+        $postAds = \App\Models\PostAd::with('country','state', 'city')->where('status','approved')->orderByDesc('id');
+        if ($action) {
+            $postAds = $postAds->where('category', 'like', '%'.$action.'%');
+        }
+
+        return view('services', array('action' => $action, 'postAds' => $postAds->paginate(10)));
+    }
+
+    public function search(Request $request){
+
+        $postAds = \App\Models\PostAd::with('country','state', 'city');
+
+        if ($request->has('category') && $request->category != '') {
+            $postAds = $postAds->where('category', 'like', '%'.$request->category.'%');
+        }
+
+        if ($request->has('search') && $request->search != '') {
+            $postAds = $postAds->where(function ($query) use ($request) {
+                $query->where('name', 'like', '%'.$request->search.'%')
+                    ->orWhere('phone', 'like', '%'.$request->search.'%')
+                    ->orWhere('whatsapp', 'like', '%'.$request->search.'%')
+                    ->orWhere('locality', 'like', '%'.$request->search.'%')
+                    ->orWhere('details', 'like', '%'.$request->search.'%')
+                    ->orWhere('description', 'like', '%'.$request->search.'%');
+            });
+        }
+
+        if ($request->has('state') && $request->state != '') {
+            $postAds = $postAds->where('state_id', $request->state);
+        }
+
+        if ($request->has('city') && $request->city != '') {
+            $postAds = $postAds->where('city_id', $request->city);
+        }
+
+        $postAds = $postAds->paginate(10);
+        return view('services', ['postAds' => $postAds]);
     }
 
     public function escort_details()
@@ -139,6 +180,7 @@ class HomeController extends Controller
         $postAd->images = json_encode($images); 
         $postAd->user_id = auth()->user()->id ?? 0;
         $postAd->status = 'pending';
+        $postAd->services = implode(',',$request->services);
         $postAd->save();
         return redirect()->route('my-ads')->with('success', 'Post ad added successfully');
     }
@@ -213,11 +255,12 @@ class HomeController extends Controller
         $postAd->country_id = $request->country;
         $postAd->state_id = $request->state;
         $postAd->city_id = $request->city;
-        $postAd->locality = $request->locality;
+        $postAd->locality = $request->locality;   
         $postAd->category = $request->category;
         $postAd->details = $request->details;
         $postAd->description = $request->description;
         $postAd->age = $request->age;
+        $postAd->services = implode(',',$request->services);
         $postAd->save();
         return redirect()->route('my-ads')->with('success', 'Post ad updated successfully');
     }
@@ -231,4 +274,7 @@ class HomeController extends Controller
     {
         return view('settings');
     }
+
+
+  
 }

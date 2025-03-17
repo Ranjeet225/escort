@@ -5,9 +5,6 @@
             <li class="nav-item mb-3">
                 <a href="{{url('/my-ads')}}" class="nav-link {{ request()->routeIs('my_ads') ? 'active' : '' }}"><strong>📦 My Listing</strong></a>
             </li>
-            {{-- <li class="nav-item mb-3">
-                <a href="#" class="nav-link {{ request()->routeIs('hello_coins') ? 'active' : '' }}">💰 Hello Coins (0)</a>
-            </li> --}}
             <li class="nav-item mb-3">
                 <a href="{{url('account')}}" class="nav-link {{ request()->routeIs('account') ? 'active' : '' }}">👤 Account</a>
                 <ul class="nav flex-column ms-3">
@@ -25,3 +22,5 @@
         </ul>
     </div>
 </div>
+
+    

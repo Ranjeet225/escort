@@ -9,45 +9,64 @@
 </style>
 @endsection
 @section('content')
-<div class="container m-5">
+<div class="container my-5">
     <div class="row">
-       @include('admin-sidebar')
-        <div class="col-md-9">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>User Name</th>
-                        <th>Name</th>
-                        <th>Phone</th>
-                        <th>Whatsapp</th>
-                        <th>Status</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($postAds as $postAd)
-                        <tr>
-                            <td>{{ $postAd->id }}</td>
-                            <td>{{ App\Models\User::find($postAd->user_id)->name ?? '' }}</td>
-                            <td>{{ $postAd->name }}</td>
-                            <td>{{ $postAd->phone }}</td>
-                            <td>{{ $postAd->whatsapp }}</td>
-                            <td>
-                                <div class="form-group">
-                                    <select class="form-control" name="status" id="status_{{ $postAd->id }}" onchange="changeStatus({{ $postAd->id }})">
-                                        <option value="active" {{ $postAd->status == 'active' ? 'selected' : '' }}>Active</option>
-                                        <option value="inactive" {{ $postAd->status == 'inactive' ? 'selected' : '' }}>Inactive</option>
-                                    </select>
-                                </div>
-                            </td>
-                            <td>
-                                <button type="button" class="btn btn-danger" onclick="deletePostAd({{ $postAd->id }})">Delete</button>
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
+        @include('admin-sidebar')
+        <div class="col-lg-9">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">All Ads</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>User Name</th>
+                                    <th>Name</th>
+                                    <th>Phone</th>
+                                    <th>Whatsapp</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($postAds as $postAd)
+                                    <tr>
+                                        <td>{{ $postAd->id }}</td>
+                                        <td>{{ App\Models\User::find($postAd->user_id)->name ?? '' }}</td>
+                                        <td>
+                                            @if ($postAd->images)
+                                                <img src="{{ asset(json_decode($postAd->images)[0]) }}" alt="Ad Image" class="ad-image me-3" style="width: 40%; height: 100%; object-fit: cover;">
+                                            @endif
+                                            <div class="flex-grow-1">
+                                                <h5 class="mb-1">{{ $postAd->name }}</h5>
+                                                <p class="text-muted mb-1">{{ $postAd->details }}</p>
+                                                <p class="text-muted mb-1">{{ $postAd->locality }}, {{ $postAd->city->name }}, {{ $postAd->state->name }}, {{ $postAd->country->name }}</p>
+                                                <p class="ad-status">{{ $postAd->status }}</p>
+                                            </div>
+                                        </td>
+                                        <td>{{ $postAd->phone }}</td>
+                                        <td>{{ $postAd->whatsapp }}</td>
+                                        <td>
+                                            <div class="form-group mb-0">
+                                                <select class="form-control" name="status" id="status_{{ $postAd->id }}" onchange="changeStatus({{ $postAd->id }})">
+                                                    <option value="approved" {{ $postAd->status == 'approved' ? 'selected' : '' }}>Approved</option>
+                                                    <option value="pending" {{ $postAd->status == 'pending' ? 'selected' : '' }}>Pending</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-sm btn-danger" onclick="deletePostAd({{ $postAd->id }})">Delete</button>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

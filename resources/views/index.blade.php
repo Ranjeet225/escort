@@ -1,6 +1,6 @@
 @extends('frontend.layouts.main')
 
-@section('title', 'Dashboard Page')
+@section('title', 'Home')
 @section('content')
  <!-- Hero Section -->
 <section class="hero-section">
@@ -21,7 +21,7 @@
     </div>
 </section>
    <!-- New Modal -->
-   <div class="modal fade mt-4 pt-4" id="newModal" tabindex="-1" aria-labelledby="newModalLabel" aria-hidden="true">
+<div class="modal fade mt-4 pt-4" id="newModal" tabindex="-1" aria-labelledby="newModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content p-4 text-center">
             <div class="modal-header mModalHeader">
@@ -65,87 +65,34 @@
                 </button>
             </div>
             <div class="modal-body mModalBody">
-                <form id="mEscortSearchForm">
+                <form action="{{ route('search') }}" method="GET">
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <select class="form-control" id="topRegion" name="topRegion">
-                                <option value="Call Girls">Call Girls
-                                </option><option value="Massages">Massages
-                                </option><option value="Male Escorts">Male Escorts
-                                </option><option value="Transsexual">Transsexual
+                            <select class="form-control" id="category" name="category">
+                                <option value="call-girls">Call Girls
+                                </option><option value="massages">Massages
+                                </option><option value="male-escorts">Male Escorts
                                 </option>
                             </select>
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="mSearchInput">
-                                <input type="text" placeholder="Search destinations..." class="form-control"
+                                <input type="text" placeholder="Search .." name="search" class="form-control"
                                     id="destination" name="destination">
                                 {{-- <i class="fas fa-search"></i> --}}
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <select class="form-control" id="region" name="region">
+                            <select class="form-control" id="state" name="state">
                                 <option value="">All Regions</option>
-                                <option value="Andhra Pradesh">Andhra Pradesh</option>
-                                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                                <option value="Assam">Assam</option>
-                                <option value="Bihar">Bihar</option>
-                                <option value="Chhattisgarh">Chhattisgarh</option>
-                                <option value="Delhi">Delhi</option>
-                                <option value="Goa">Goa</option>
-                                <option value="Gujarat">Gujarat</option>
-                                <option value="Haryana">Haryana</option>
-                                <option value="Himachal Pradesh">Himachal Pradesh</option>
-                                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                                <option value="Jharkhand">Jharkhand</option>
-                                <option value="Karnataka">Karnataka</option>
-                                <option value="Kerala">Kerala</option>
-                                <option value="Madhya Pradesh">Madhya Pradesh</option>
-                                <option value="Maharashtra">Maharashtra</option>
-                                <option value="Manipur">Manipur</option>
-                                <option value="Meghalaya">Meghalaya</option>
-                                <option value="Mizoram">Mizoram</option>
-                                <option value="Nagaland">Nagaland</option>
-                                <option value="Odisha">Odisha</option>
-                                <option value="Punjab">Punjab</option>
-                                <option value="Rajasthan">Rajasthan</option>
-                                <option value="Sikkim">Sikkim</option>
-                                <option value="Tamil Nadu">Tamil Nadu</option>
-                                <option value="Telangana">Telangana</option>
-                                <option value="Tripura">Tripura</option>
-                                <option value="Uttar Pradesh">Uttar Pradesh</option>
-                                <option value="Uttarakhand">Uttarakhand</option>
-                                <option value="West Bengal">West Bengal</option>
+                                @foreach ($states as $state)
+                                    <option value="{{ $state->id }}">{{ $state->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="col-md-6 mb-3">
                             <select class="form-control" id="city" name="city">
                                 <option value="">All Cities</option>
-                                <option value="Ahmedabad">Ahmedabad</option>
-                                <option value="Bangalore">Bangalore</option>
-                                <option value="Chennai">Chennai</option>
-                                <option value="Delhi">Delhi</option>
-                                <option value="Noida">Noida</option>
-                                <option value="Hyderabad">Hyderabad</option>
-                                <option value="Kolkata">Kolkata</option>
-                                <option value="Mumbai">Mumbai</option>
-                                <option value="Pune">Pune</option>
-                                <option value="Surat">Surat</option>
-                                <option value="Jaipur">Jaipur</option>
-                                <option value="Lucknow">Lucknow</option>
-                                <option value="Kanpur">Kanpur</option>
-                                <option value="Nagpur">Nagpur</option>
-                                <option value="Indore">Indore</option>
-                                <option value="Bhopal">Bhopal</option>
-                                <option value="Patna">Patna</option>
-                                <option value="Chandigarh">Chandigarh</option>
-                                <option value="Coimbatore">Coimbatore</option>
-                                <option value="Vadodara">Vadodara</option>
-                                <option value="Visakhapatnam">Visakhapatnam</option>
-                                <option value="Mysore">Mysore</option>
-                                <option value="Bhubaneswar">Bhubaneswar</option>
-                                <option value="Thiruvananthapuram">Thiruvananthapuram</option>
-                                <option value="Ranchi">Ranchi</option>
                             </select>
                         </div>
                     </div>
@@ -158,14 +105,14 @@
     </div>
 </div>
  <!-- Services Section -->
-<section class="services-section py-5 w-lg-50 mx-auto">
+<section class="services-section py-5">
     <div class="container">
         <p class="text-center section-title mb-3">Premium Services in your city</p>
         <p class="text-center text-muted mb-5">Find your favorite beauty expert in Glamo</p>
 
-        <div class="row d-flex justify-content-center g-4">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
             <!--  Call Girls Card -->
-            <div class="col-md-4">
+            <div>
                 <div class="service-card">
                     <div class="service-img">
                         <a href="{{url('/')}}/{{'call-girls'}}">
@@ -176,23 +123,19 @@
                         </div>
                     </div>
                     <div class="service-info p-3">
-                        <p class="service-desc">Get the perfect haircut, color, and style with our expert stylists.
-                            From trendy to classic looks, we've got</p>
-                        <div class="service-location card">
-                            <a href="#" class="location-link"> Call Girls<br>Bangalore</a>
-                        </div>
-                        <div class="service-location card">
-                            <a href="#" class="location-link"> Call Girls<br>Mumbai</a>
-                        </div>
-                        <div class="service-location card">
-                            <a href="#" class="location-link"> Call Girls<br>Delhi</a>
+                        <p class="service-desc">Professional Call Girls for all occasions. Whether it's bridal,
+                            party, or everyday Call Girls, our artists </p>
+                        <div class="service-location">
+                            <a href="#" class="location-link">Call Girls<br>Bangalore</a>
+                            <a href="#" class="location-link">Call Girls<br>Mumbai</a>
+                            <a href="#" class="location-link">Call Girls<br>Delhi</a>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!--  Massages Card -->
-            <div class="col-md-4">
+            <div>
                 <div class="service-card">
                     <div class="service-img">
                         <a href="{{url('/')}}/{{'massages'}}">
@@ -203,23 +146,19 @@
                         </div>
                     </div>
                     <div class="service-info p-3">
-                        <p class="service-desc">Enjoy our luxurious facials and skincare treatments. Our therapists
-                            use premium products to cleanse, </p>
-                        <div class="service-location card">
-                            <a href="#" class="location-link"> Massages<br>Bangalore</a>
-                        </div>
-                        <div class="service-location card">
-                            <a href="#" class="location-link"> Massages<br>Mumbai</a>
-                        </div>
-                        <div class="service-location card">
-                            <a href="#" class="location-link"> Massages<br>Delhi</a>
+                        <p class="service-desc">Professional Massages for all occasions. Whether it's bridal,
+                            party, or everyday Massages, our artists </p>
+                        <div class="service-location">
+                            <a href="#" class="location-link">Massages<br>Bangalore</a>
+                            <a href="#" class="location-link">Massages<br>Mumbai</a>
+                            <a href="#" class="location-link">Massages<br>Delhi</a>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!--  Male Escorts Card -->
-            <div class="col-md-4">
+            <div>
                 <div class="service-card">
                     <div class="service-img">
                         <a href="{{url('/')}}/{{'male-escorts'}}">
@@ -230,75 +169,16 @@
                         </div>
                     </div>
                     <div class="service-info p-3">
-                        <p class="service-desc"> Choose from a wide range of colors and designs. Pamper your hands
-                            and feet with our.</p>
-                        <div class="service-location card">
-                            <a href="#" class="location-link"> Male Escorts<br>Bangalore</a>
-                        </div>
-                        <div class="service-location card">
-                            <a href="#" class="location-link"> Male Escorts<br>Mumbai</a>
-                        </div>
-                        <div class="service-location card">
-                            <a href="#" class="location-link"> Male Escorts<br>Delhi</a>
+                        <p class="service-desc">Professional Male Escorts for all occasions. Whether it's bridal,
+                            party, or everyday Male Escorts, our artists </p>
+                        <div class="service-location">
+                            <a href="#" class="location-link">Male Escorts<br>Bangalore</a>
+                            <a href="#" class="location-link">Male Escorts<br>Mumbai</a>
+                            <a href="#" class="location-link">Male Escorts<br>Delhi</a>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Transsexuals Card -->
-            <div class="col-md-4">
-                <div class="service-card ">
-                    <div class="service-img">
-                        <a href="{{url('/')}}/{{'transsexuals'}}">
-                            <img src="{{ asset('assets/images/banner/trans.jpg') }}" alt="Transsexuals" class="img-fluid">
-                        </a>
-                        <div class="service-badge">
-                            <i class="fas fa-magic me-2"></i> Transsexuals
-                        </div>
-                    </div>
-                    <div class="service-info p-3">
-                        <p class="service-desc">Professional Transsexuals for all occasions. Whether it's bridal,
-                            party, or everyday Transsexuals, our artists </p>
-                        <div class="service-location card">
-                            <a href="#" class="location-link">Transsexuals<br>Bangalore</a>
-                        </div>
-                        <div class="service-location card">
-                            <a href="#" class="location-link">Transsexuals<br>Mumbai</a>
-                        </div>
-                        <div class="service-location card">
-                            <a href="#" class="location-link">Transsexuals<br>Delhi</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Transsexuals Card -->
-            <div class="col-md-4">
-                <div class="service-card ">
-                    <div class="service-img">
-                        <a href="{{url('/')}}/{{'transsexuals'}}">
-                            <img src="{{ asset('assets/images/blog/1.jpg') }}" alt="Transsexuals" class="img-fluid">
-                        </a>
-                        <div class="service-badge">
-                            <i class="fas fa-magic me-2"></i> Transsexuals
-                        </div>
-                    </div>
-                    <div class="service-info p-3">
-                        <p class="service-desc">Professional Transsexuals for all occasions. Whether it's bridal,
-                            party, or everyday Transsexuals, our artists </p>
-                        <div class="service-location card">
-                            <a href="#" class="location-link">Transsexuals<br>Bangalore</a>
-                        </div>
-                        <div class="service-location card">
-                            <a href="#" class="location-link">Transsexuals<br>Mumbai</a>
-                        </div>
-                        <div class="service-location card">
-                            <a href="#" class="location-link">Transsexuals<br>Delhi</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Body Treatments Card -->
         </div>
     </div>
 </section>
@@ -314,94 +194,99 @@
 </section>
 
 <!-- Filter Sections -->
-<section class="filter-section py-4">
+<section class="filter-section py-5 bg-light">
     <div class="container">
-        <!--  Call Girls Filter -->
-        <div class="filter-category mb-2 card py-3 text-center">
-            <h3 class="filter-title">
-                <i class="fas fa-cut text-primary me-2"></i> Call Girls
-            </h3>
-            <div class="filter-buttons mt-3">
-                <a href="{{url('/')}}/{{'call-girls'}}/{{'bangalore'}}" class="btn btn-outline-primary rounded-pill m-1">Bangalore</a>
-                <a href="{{url('/')}}/{{'call-girls'}}/{{'mumbai'}}" class="btn btn-outline-primary rounded-pill m-1">Mumbai</a>
-                <a href="{{url('/')}}/{{'call-girls'}}/{{'delhi'}}" class="btn btn-outline-primary rounded-pill m-1">Delhi</a>
-                <a href="{{url('/')}}/{{'call-girls'}}/{{'hyderabad'}}" class="btn btn-outline-primary rounded-pill m-1">Hyderabad</a>
-                <a href="{{url('/')}}/{{'call-girls'}}/{{'pune'}}" class="btn btn-outline-primary rounded-pill m-1">Pune</a>
-                <a href="{{url('/')}}/{{'call-girls'}}/{{'all-cities'}}" class="btn btn-outline-primary rounded-pill m-1">All Cities</a>
+        <div class="row">
+            <!-- Call Girls Filter -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">
+                            <i class="fas fa-cut text-danger me-2"></i> Call Girls
+                        </h4>
+                        <div class="d-grid gap-2 mt-3">
+                            <a href="{{ url('/call-girls/bangalore') }}" class="btn btn-outline-danger rounded-pill">Bangalore</a>
+                            <a href="{{ url('/call-girls/mumbai') }}" class="btn btn-outline-danger rounded-pill">Mumbai</a>
+                            <a href="{{ url('/call-girls/delhi') }}" class="btn btn-outline-danger rounded-pill">Delhi</a>
+                            <a href="{{ url('/call-girls/hyderabad') }}" class="btn btn-outline-danger rounded-pill">Hyderabad</a>
+                            <a href="{{ url('/call-girls/pune') }}" class="btn btn-outline-danger rounded-pill">Pune</a>
+                            <a href="{{ url('/call-girls/all-cities') }}" class="btn btn-outline-danger rounded-pill">All Cities</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <!--  Massages Filter -->
-        <div class="filter-category mb-2 card py-3 text-center">
-            <h3 class="filter-title">
-                <i class="fas fa-spa text-primary me-2"></i> Massages
-            </h3>
-            <div class="filter-buttons mt-3">
-                <a href="{{ url('/') }}/{{ 'massages' }}/{{ 'bangalore' }}" class="btn btn-outline-primary rounded-pill m-1">Bangalore</a>
-                <a href="{{ url('/') }}/{{ 'massages' }}/{{ 'mumbai' }}" class="btn btn-outline-primary rounded-pill m-1">Mumbai</a>
-                <a href="{{ url('/') }}/{{ 'massages' }}/{{ 'delhi' }}" class="btn btn-outline-primary rounded-pill m-1">Delhi</a>
-                <a href="{{ url('/') }}/{{ 'massages' }}/{{ 'hyderabad' }}" class="btn btn-outline-primary rounded-pill m-1">Hyderabad</a>
-                <a href="{{ url('/') }}/{{ 'massages' }}/{{ 'pune' }}" class="btn btn-outline-primary rounded-pill m-1">Pune</a>
-                <a href="{{ url('/') }}/{{ 'massages' }}/{{ 'all-cities' }}" class="btn btn-outline-primary rounded-pill m-1">All Cities</a>
+            <!-- Massages Filter -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">
+                            <i class="fas fa-spa text-success me-2"></i> Massages
+                        </h4>
+                        <div class="d-grid gap-2 mt-3">
+                            <a href="{{ url('/massages/bangalore') }}" class="btn btn-outline-success rounded-pill">Bangalore</a>
+                            <a href="{{ url('/massages/mumbai') }}" class="btn btn-outline-success rounded-pill">Mumbai</a>
+                            <a href="{{ url('/massages/delhi') }}" class="btn btn-outline-success rounded-pill">Delhi</a>
+                            <a href="{{ url('/massages/hyderabad') }}" class="btn btn-outline-success rounded-pill">Hyderabad</a>
+                            <a href="{{ url('/massages/pune') }}" class="btn btn-outline-success rounded-pill">Pune</a>
+                            <a href="{{ url('/massages/all-cities') }}" class="btn btn-outline-success rounded-pill">All Cities</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <!--  Male Escorts Filter -->
-        <div class="filter-category mb-2 card py-3 text-center">
-            <h3 class="filter-title">
-                <i class="fas fa-hand-sparkles text-primary me-2"></i> Male Escorts
-            </h3>
-            <div class="filter-buttons mt-3">
-                <a href="{{url('/')}}/{{'male-escorts'}}/{{'bangalore'}}" class="btn btn-outline-primary rounded-pill m-1">Bangalore</a>
-                <a href="{{url('/')}}/{{'male-escorts'}}/{{'mumbai'}}" class="btn btn-outline-primary rounded-pill m-1">Mumbai</a>
-                <a href="{{url('/')}}/{{'male-escorts'}}/{{'delhi'}}" class="btn btn-outline-primary rounded-pill m-1">Delhi</a>
-                <a href="{{url('/')}}/{{'male-escorts'}}/{{'hyderabad'}}" class="btn btn-outline-primary rounded-pill m-1">Hyderabad</a>
-                <a href="{{url('/')}}/{{'male-escorts'}}/{{'pune'}}" class="btn btn-outline-primary rounded-pill m-1">Pune</a>
-            </div>
-        </div>
-
-        <!-- Transsexuals Filter -->
-        <div class="filter-category mb-2 card py-3 text-center">
-            <h3 class="filter-title">
-                <i class="fas fa-magic text-primary me-2"></i> Transsexuals
-            </h3>
-            <div class="filter-buttons mt-3">
-                <a href="{{url('/')}}/{{'transsexual'}}/{{'bangalore'}}" class="btn btn-outline-primary rounded-pill m-1">Bangalore</a>
-                <a href="{{url('/')}}/{{'transsexual'}}/{{'mumbai'}}" class="btn btn-outline-primary rounded-pill m-1">Mumbai</a>
-                <a href="{{url('/')}}/{{'transsexual'}}/{{'delhi'}}" class="btn btn-outline-primary rounded-pill m-1">Delhi</a>
-                <a href="{{url('/')}}/{{'transsexual'}}/{{'hyderabad'}}" class="btn btn-outline-primary rounded-pill m-1">Hyderabad</a>
-                <a href="{{url('/')}}/{{'transsexual'}}/{{'pune'}}" class="btn btn-outline-primary rounded-pill m-1">Pune</a>
+            <!-- Male Escorts Filter -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">
+                            <i class="fas fa-hand-sparkles text-warning me-2"></i> Male Escorts
+                        </h4>
+                        <div class="d-grid gap-2 mt-3">
+                            <a href="{{ url('/male-escorts/bangalore') }}" class="btn btn-outline-warning rounded-pill">Bangalore</a>
+                            <a href="{{ url('/male-escorts/mumbai') }}" class="btn btn-outline-warning rounded-pill">Mumbai</a>
+                            <a href="{{ url('/male-escorts/delhi') }}" class="btn btn-outline-warning rounded-pill">Delhi</a>
+                            <a href="{{ url('/male-escorts/hyderabad') }}" class="btn btn-outline-warning rounded-pill">Hyderabad</a>
+                            <a href="{{ url('/male-escorts/pune') }}" class="btn btn-outline-warning rounded-pill">Pune</a>
+                            <a href="{{ url('/male-escorts/all-cities') }}" class="btn btn-outline-warning rounded-pill">All Cities</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="py-5">
+<section class="py-5 bg-light">
     <div class="container">
         <h2 class="text-center mb-4">Recent Searches</h2>
-        <div class="row">
-            @for ($i = 1; $i <= 8; $i++)
-                <div class="col-md-6 col-lg-3 mb-4">
-                    <div class="card h-100 shadow">
-                        <img src="{{ asset('assets/images/blog/' . $i . '.jpg') }}" 
-                             class="card-img-top img-fluid" 
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            @foreach ($postAds as $postAd)
+                <div class="col">
+                    <div class="card h-100 shadow-sm rounded-3">
+                        <img src="{{ asset(json_decode($postAd->images)[0]) }}" 
+                             class="card-img-top img-fluid rounded-top" 
                              alt="Model Image"
                              onerror="this.onerror=null; this.src='{{ asset('assets/images/dummy.jpg') }}'"
-                             style="height: 200px; object-fit: cover;">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">{{ 'Model ' . $i }}</h5>
-                            <p class="card-text flex-grow-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, quidem.</p>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Age: {{ rand(18, 35) }}</li>
-                                <li class="list-group-item">Height: {{ rand(150, 190) }}cm</li>
-                                <li class="list-group-item">Weight: {{ rand(40, 80) }}kg</li>
-                                <li class="list-group-item">Hair Color: {{ ['Black', 'Brown', 'Blonde', 'Red'][rand(0, 3)] }}</li>
-                                <li class="list-group-item">Eye Color: {{ ['Black', 'Brown', 'Blue', 'Green'][rand(0, 3)] }}</li>
-                            </ul>
+                             style="height: 250px; object-fit: cover;">
+                        <div class="card-body d-flex flex-column p-3">
+                            <h5 class="card-title">{{ $postAd->name }}</h5>
+                            <p class="card-text small mb-2">
+                                {{ $postAd->details }}
+                        </p>
+                            <p class="card-text flex-grow-1">{!! Str::limit($postAd->description, 100) !!}</p>
+                            <div class="d-flex justify-content-between mt-auto">
+                                <a href="{{ url('post.ads.show', $postAd->id) }}" class="btn btn-outline-primary rounded-pill">View</a>
+                                <ul class="list-group list-group-flush mb-0">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Age: {{ $postAd->age }}
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-            @endfor
+            @endforeach
         </div>
     </div>
 </section>
@@ -409,5 +294,21 @@
 @endsection
 
 @section('js')
-    <script src="{{ asset('assets/js/dashboard.js') }}"></script>
+    {{-- <script src="{{ asset('assets/js/dashboard.js') }}"></script> --}}
+    <script>
+        $('#state').change(function(){
+            var stateId = $(this).val();
+            $('#city').find('option').not(':first').remove();
+            $.ajax({
+                url: "{{ route('get.cities') }}",
+                method: "GET",
+                data: {stateId: stateId},
+                success: function(data){
+                    $.each(data, function(key, value){
+                        $('#city').append('<option value="' + value.id + '">' + value.name + '</option>');
+                    });
+                }
+            });
+        });
+    </script>
 @endsection

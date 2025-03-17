@@ -148,6 +148,13 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" class="form-control @error('age') is-invalid @enderror" id="age" name="age" value="{{ old('age', $postAd->age) }}" >
+                    @error('age')
+                        <span class="invalid-feedback">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="form-group">
                     <label for="location">Location</label>
                     <div class="row">
                         <div class="col-md-6">
@@ -243,12 +250,35 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="age">Age</label>
-                    <input type="number" class="form-control @error('age') is-invalid @enderror" id="age" name="age" value="{{ old('age', $postAd->age) }}" >
-                    @error('age')
+                    <label class="title">Select Any 5 Services</label>
+                    <div class="services-checkboxes" style="display: flex; flex-wrap: wrap; gap: 10px;">
+                        @php
+                            $services = [
+                                'Anal Sex', 'BDSM', 'CIM - Cum In Mouth', 'COB - Cum On Body',
+                                'Couples', 'Deep throat', 'Domination', 'Face sitting', 'Fingering',
+                                'Fisting', 'Foot fetish', 'French kissing', 'GFE', 'Giving hardsports',
+                                'Receiving hardsports', 'Lap dancing', 'Massage', 'Nuru massage',
+                                'Oral sex - blowjob', 'OWO - Oral without condom', 'Parties',
+                                'Reverse oral', 'Giving rimming', 'Rimming receiving', 'Role play',
+                                'Sex toys', 'Spanking', 'Strapon', 'Striptease', 'Submissive',
+                                'Squirting', 'Tantric massage', 'Teabagging', 'Tie and tease',
+                                'Uniforms', 'Giving watersports', 'Receiving watersports', 'Webcam sex'
+                            ];
+                        @endphp
+                        @foreach ($services as $service)
+                            <div class="form-check" style="flex: 0 0 45%;">
+                                <input class="form-check-input" type="checkbox" name="services[]" value="{{ $service }}" id="service-{{ $loop->index }}" {{ strpos($postAd->services, $service) !== false ? 'checked' : '' }}>
+                                <label class="form-check-label" for="service-{{ $loop->index }}">
+                                    {{ $service }}
+                                </label>
+                            </div>
+                        @endforeach
+                    </div>
+                    @error('services')
                         <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
+             
             </div>
             <div class="form-step-buttons align-items-center">
                 <button type="submit" class="btn btn-primary"><i class="fas fa-share"></i> UPDATE</button>

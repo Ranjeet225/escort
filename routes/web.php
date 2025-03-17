@@ -45,8 +45,6 @@ Route::middleware('auth')->group(function () {
     Route::get('user-logout', [AdminController::class, 'logout'])->name('logout');
     Route::get('post-ads', [HomeController::class, 'post_ads'])->name('dashboard');
     Route::post('post-ads', [HomeController::class, 'save_post_ads'])->name('post.ads.store');
-    Route::get('states', [HomeController::class, 'states'])->name('get.states');
-    Route::get('city', [HomeController::class, 'city'])->name('get.cities');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -60,6 +58,9 @@ Route::middleware('auth')->group(function () {
     Route::get('manage-users', [AdminController::class, 'manage_users'])->name('manage_users');
     Route::post('/admin-update-post-ad/{id}', [AdminController::class, 'admin_update_post_ads'])->name('admin.post.ads.update');
 });
+Route::get('states', [HomeController::class, 'states'])->name('get.states');
+Route::get('city', [HomeController::class, 'city'])->name('get.cities');
+Route::get('search',[HomeController::class,'search'])->name('search');
 
 Route::get('/just-check', [HomeController::class, 'just_check'])->name('just-check');
 Route::get('/{action}', [HomeController::class, 'services'])->name('service');

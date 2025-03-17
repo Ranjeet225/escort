@@ -9,47 +9,51 @@
 </style>
 @endsection
 @section('content')
-<div class="container m-5">
+<div class="container my-5">
     <div class="row">
-       @include('admin-sidebar')
+        @include('admin-sidebar')
         <div class="col-md-9">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Status</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($users as $user)
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
                         <tr>
-                            <td>{{ $user->id }}</td>
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->email }}</td>
-                            <td>
-                                <div class="form-group">
-                                    <select class="form-control" name="status" id="status_{{ $user->id }}" onchange="changeStatus({{ $user->id }})">
-                                        <option value="active" {{ $user->status == 'active' ? 'selected' : '' }}>Active</option>
-                                        <option value="inactive" {{ $user->status == 'inactive' ? 'selected' : '' }}>Inactive</option>
-                                    </select>
-                                </div>
-                            </td>
-                            <td>
-                                <button type="button" class="btn btn-danger" onclick="deleteUser({{ $user->id }})">Delete</button>
-                            </td>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>Actions</th>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach ($users as $user)
+                            <tr>
+                                <td>{{ $user->id }}</td>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->email }}</td>
+                                
+                                <td>
+                                    <div class="form-group">
+                                        <select class="form-control" name="status" id="status_{{ $user->id }}" onchange="changeStatus({{ $user->id }})">
+                                            <option value="active" {{ $user->status == 'active' ? 'selected' : '' }}>Active</option>
+                                            <option value="inactive" {{ $user->status == 'inactive' ? 'selected' : '' }}>Inactive</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-danger" onclick="deleteUser({{ $user->id }})">Delete</button>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
 @endsection
 
 @section('js')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     function changeStatus(id) {
         var status = $('#status_' + id).val();

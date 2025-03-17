@@ -112,13 +112,115 @@
                 transform: scale(1);
             }
         }
+        .age-overlay {
+            background-color: rgba(0, 0, 0, 0.85);
+        }
+
+        /* Popup Box */
+        .age-popup {
+            max-width: 500px;
+            width: 90%;
+            border-radius: 12px;
+            background: #222;
+            color: #fff;
+            text-align: center;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Popup Header */
+        .age-popup h5 {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        /* Popup Content */
+        .age-popup p {
+            font-size: 16px;
+            margin: 15px 0;
+            line-height: 1.5;
+        }
+
+        /* Checkbox Styling */
+        .age-checkbox label {
+            font-size: 14px;
+            color: #ddd;
+            cursor: pointer;
+        }
+
+        /* Buttons */
+        .age-btn {
+            width: 100%;
+            font-weight: bold;
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        .age-btn-enter {
+            background-color: #28a745;
+            border: none;
+        }
+
+        .age-btn-exit {
+            background-color: #dc3545;
+            border: none;
+        }
+
+        .age-btn:disabled {
+            background-color: #6c757d;
+            cursor: not-allowed;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .age-popup {
+                max-width: 90%;
+                padding: 20px;
+            }
+
+            .age-popup h5 {
+                font-size: 18px;
+            }
+
+            .age-popup p {
+                font-size: 14px;
+            }
+
+            .age-checkbox label {
+                font-size: 12px;
+            }
+        }
     </style>
 </head>
 
 <body>
+    {{-- age confirmations  --}}
+    {{-- <div class="modal fade age-overlay mx-auto" id="ageVerificationModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content age-popup">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title">Please Confirm Your Age</h5>
+                </div>
+                <div class="modal-body">
+                    <p>I am over 18 years old and accept viewing explicit texts and images intended for an adult audience.</p>
+                    <div class="form-check age-checkbox text-start">
+                        <input class="form-check-input" type="checkbox" id="ageTermsAccept">
+                        <label class="form-check-label" for="ageTermsAccept">
+                            I have read and accept the <a href="{{url('/terms-and-conditions')}}">Terms and Conditions</a>.
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer border-0 d-flex flex-column gap-2">
+                    <button class="btn age-btn age-btn-enter" id="ageAcceptBtn" disabled>Enter</button>
+                    <button class="btn age-btn age-btn-exit" id="ageRejectBtn">I am Under 18</button>
+                </div>
+            </div>
+        </div>
+    </div> --}}
     @include('frontend.layouts.header')
     @yield('content')
     @include('frontend.layouts.footer')
+    <!-- Age Verification Modal -->
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -132,22 +234,26 @@
 
     <script src="{{asset('assets/js/main.js')}}"></script>
     <script>
-        $(document).ready(function() {
-            // Show/hide button on scroll
-            $(window).scroll(function() {
-                if ($(this).scrollTop() > 200) {
-                    $('#backToTop').fadeIn();
-                } else {
-                    $('#backToTop').fadeOut();
-                }
-            });
+     document.addEventListener("DOMContentLoaded", function () {
+        var ageModal = new bootstrap.Modal(document.getElementById('ageVerificationModal'));
+        ageModal.show();
 
-            $('#backToTop').click(function() {
-                $('html, body').animate({
-                    scrollTop: 0
-                }, 800);
-                return false;
-            });
+        document.getElementById('ageTermsAccept').addEventListener('change', function () {
+            document.getElementById('ageAcceptBtn').disabled = !this.checked;
+        });
+
+        document.getElementById('ageAcceptBtn').addEventListener('click', function () {
+            localStorage.setItem('ageVerified', 'true');
+            ageModal.hide();
+        });
+
+        document.getElementById('ageRejectBtn').addEventListener('click', function () {
+            window.location.href = "https://www.google.com";
+        });
+
+        if (localStorage.getItem('ageVerified') === 'true') {
+            ageModal.hide();
+        }
         });
     </script>
     <script>
