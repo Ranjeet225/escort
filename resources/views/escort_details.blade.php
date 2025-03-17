@@ -105,10 +105,9 @@
         <div class="col-12">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb small">
-                    <li class="breadcrumb-item"><a href="#" class="text-decoration-none">Beauty Hub</a></li>
-                    <li class="breadcrumb-item"><a href="#" class="text-decoration-none">Hyderabad</a></li>
-                    <li class="breadcrumb-item"><a href="#" class="text-decoration-none">Premium Salons</a></li>
-                    <li class="breadcrumb-item active">Glamour Beauty Parlor</li>
+                    <li class="breadcrumb-item"><a href="#" class="text-decoration-none text-capitalize">{{$postAd->category}}</a></li>
+                    <li class="breadcrumb-item"><a href="#" class="text-decoration-none text-capitalize">{{$postAd->state->name}}</a></li>
+                    <li class="breadcrumb-item"><a href="#" class="text-decoration-none text-capitalize">{{$postAd->city->name}}</a></li>
                 </ol>
             </nav>
         </div>
@@ -118,11 +117,11 @@
     <div class="row mb-3">
         <div class="col-6">
             <span class="badge bg-light text-dark me-2"><i class="fas fa-star text-warning me-1"></i> 4.8 (50 ratings)</span>
-            <span class="badge bg-light text-dark"><i class="fas fa-map-marker-alt me-1"></i> Hyderabad</span>
+            <span class="badge bg-light text-dark"><i class="fas fa-map-marker-alt me-1"></i> {{$postAd->city->name}}, {{$postAd->state->name}}</span>
         </div>
         <div class="col-6 text-end">
             <a href="tel:09999778843" class="btn btn-primary rounded-pill">
-                <i class="fas fa-phone-alt me-2"></i> 09999778843
+                <i class="fas fa-phone-alt me-2"></i> {{$postAd->phone}}
             </a>
         </div>
     </div>
@@ -130,7 +129,7 @@
     <!-- Parlor Title and Rating -->
     <div class="row mb-4">
         <div class="col-12">
-            <h1 class="fs-5 fw-bold">Glamour Beauty Parlor - Premium Services No Advance Payment</h1>
+            <h1 class="fs-5 fw-bold">{{$postAd->details}}</h1>
             <div class="d-flex align-items-center">
                 <div class="me-2">
                     <i class="fas fa-star text-warning"></i>
@@ -147,30 +146,17 @@
 
     <!-- Gallery -->
     <div class="row mb-4">
-        <div class="col-4 mb-3">
-            <img src="../assets/images/blog/1.jpg" alt="Salon Interior" class="img-fluid rounded">
-        </div>
-        <div class="col-4 mb-3">
-            <img src="../assets/images/blog/1.jpg" alt="Hair Styling" class="img-fluid rounded">
-        </div>
-        <div class="col-4 mb-3">
-            <img src="../assets/images/blog/1.jpg" alt="Facial Treatment" class="img-fluid rounded">
-        </div>
-        <div class="col-4 mb-3">
-            <img src="../assets/images/blog/1.jpg" alt="Manicure Service" class="img-fluid rounded">
-        </div>
-        <div class="col-4 mb-3">
-            <img src="../assets/images/blog/1.jpg" alt="Makeup Service" class="img-fluid rounded">
-        </div>
-        <div class="col-4 mb-3">
-            <img src="../assets/images/blog/1.jpg" alt="Bridal Makeup" class="img-fluid rounded">
-        </div>
+        @foreach (json_decode($postAd->images) as $image)
+            <div class="col-12 col-md-4 mb-3">
+                <img src="{{ asset($image) }}" alt="Salon Interior" class="img-fluid rounded w-100" style="height: 90%; object-fit: cover;">
+            </div>
+        @endforeach
     </div>
 
     <!-- Back Button -->
     <div class="row mb-4">
         <div class="col-12">
-            <a href="#" class="btn btn-outline-primary btn-sm"><i class="fas fa-arrow-left me-2"></i>Back</a>
+            <a href="{{ url()->previous() }}" class="btn btn-outline-primary btn-sm"><i class="fas fa-arrow-left me-2"></i>Back</a>
         </div>
     </div>
 
@@ -180,16 +166,7 @@
             <div class="card border-0 mb-4">
                 <div class="card-body p-3">
                     <h2 class="mb-3"><i class="fas fa-info-circle me-2"></i> About us</h2>
-                    
-                    <p class="mb-2">Glamour Beauty Parlor - Premium Services No Advance Payment <i class="fas fa-star text-warning"></i> <i class="fas fa-star text-warning"></i> <i class="fas fa-star text-warning"></i> <i class="fas fa-star text-warning"></i> <i class="fas fa-star-half-alt text-warning"></i></p>
-                    <p class="mb-2">Pay After Service, 100% Satisfaction Guaranteed.</p>
-                    
-                    <p class="mb-2">Premium quality services with a unique combination of expertise, elegance, beauty, and sophistication.</p>
-                    
-                    <p class="mb-2">Genuine Beauty Service Call and WhatsApp | Any Time | 24/7 Hours Service Available Day and Night</p>
-                    
-                    <p class="mb-2">Call & Out Call Our Service in All Over Hyderabad 24/7 Anywhere Anytime 3★ 4★5★ Hotel Call Only Real And Decent Person Only.</p>
-                    
+                    {!! $postAd->description !!}
                     <h5 class="mt-4 mb-2">Rates</h5>
                     <p class="mb-1">1Hr FOR 1HR 2 SESSION</p>
                     <p class="mb-1">3Hr FOR 3HR 5 SESSION</p>
@@ -230,13 +207,37 @@
                     <h2 class="mb-3"><i class="fas fa-concierge-bell me-2"></i> Services</h2>
                     
                     <div class="d-flex flex-wrap justify-content-start">
-                        <span class="badge bg-light text-dark p-2 mb-2"><i class="fas fa-cut me-1"></i> Oral</span>
-                        <span class="badge bg-light text-dark p-2 mb-2"><i class="fas fa-spa me-1"></i> Anal</span>
-                        <span class="badge bg-light text-dark p-2 mb-2"><i class="fas fa-hands me-1"></i> BDSM</span>
-                        <span class="badge bg-light text-dark p-2 mb-2"><i class="fas fa-star me-1"></i> Girlfriend experience</span>
-                        <span class="badge bg-light text-dark p-2 mb-2"><i class="fas fa-hands me-1"></i> Tantric massage</span>
-                        <span class="badge bg-light text-dark p-2 mb-2"><i class="fas fa-kiss me-1"></i> French kiss</span>
-                        <span class="badge bg-light text-dark p-2 mb-2"><i class="fas fa-heart me-1"></i> Threesome</span>
+                        @php
+                            $services = explode(',', $postAd->services);
+                        @endphp
+                        
+                        @foreach ($services as $service)
+                            @switch($service)
+                                @case('Oral')
+                                    <span class="badge bg-light text-dark p-2 mb-2"><i class="fas fa-cut me-1"></i> {{ $service }}</span>
+                                    @break
+                                @case('Anal')
+                                    <span class="badge bg-light text-dark p-2 mb-2"><i class="fas fa-spa me-1"></i> {{ $service }}</span>
+                                    @break
+                                @case('BDSM')
+                                    <span class="badge bg-light text-dark p-2 mb-2"><i class="fas fa-hands me-1"></i> {{ $service }}</span>
+                                    @break
+                                @case('Girlfriend experience')
+                                    <span class="badge bg-light text-dark p-2 mb-2"><i class="fas fa-star me-1"></i> {{ $service }}</span>
+                                    @break
+                                @case('Tantric massage')
+                                    <span class="badge bg-light text-dark p-2 mb-2"><i class="fas fa-hands me-1"></i> {{ $service }}</span>
+                                    @break
+                                @case('French kiss')
+                                    <span class="badge bg-light text-dark p-2 mb-2"><i class="fas fa-kiss me-1"></i> {{ $service }}</span>
+                                    @break
+                                @case('Threesome')
+                                    <span class="badge bg-light text-dark p-2 mb-2"><i class="fas fa-heart me-1"></i> {{ $service }}</span>
+                                    @break
+                                @default
+                                    <span class="badge bg-light text-dark p-2 mb-2">{{ $service }}</span>
+                            @endswitch
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -278,7 +279,7 @@
     </div>
 
     <!-- Payments Section -->
-    <div class="row mb-4">
+    {{-- <div class="row mb-4">
         <div class="col-12">
             <div class="card border-0 mb-4">
                 <div class="card-body p-3">
@@ -307,14 +308,14 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <!-- Contact Section -->
     <div class="row mb-4">
         <div class="col-12 text-center">
             <h2 class="mb-4">Contact me</h2>
             <a href="tel:09999778843" class="btn btn-primary rounded-pill px-4 py-2">
-                <i class="fas fa-phone-alt me-2"></i> 09999778843
+                <i class="fas fa-phone-alt me-2"></i> {{ $postAd->phone }}
             </a>
         </div>
     </div>
@@ -343,7 +344,7 @@
     <div class="row mb-4 text-center">
         <div class="col-12">
             <p class="mb-1">All ads in <a href="#" class="text-decoration-none text-danger">Massages</a></p>
-            <p>in <a href="#" class="text-decoration-none text-danger">Hyderabad <i class="fas fa-chevron-right small"></i></a></p>
+            <p>in <a href="#" class="text-decoration-none text-danger">{{$postAd->city->name}} <i class="fas fa-chevron-right small"></i></a></p>
         </div>
     </div>
 

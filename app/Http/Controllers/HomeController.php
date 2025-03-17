@@ -20,13 +20,18 @@ class HomeController extends Controller
         return view('index',compact('states', 'postAds'));
     }
 
-    public function services($action)
+    public function services($action = null,$places = null)
     {
         $postAds = \App\Models\PostAd::with('country','state', 'city')->where('status','approved')->orderByDesc('id');
         if ($action) {
             $postAds = $postAds->where('category', 'like', '%'.$action.'%');
         }
-
+        if($places != 'all-cities') {
+            $city = \DB::table('cities')->where('name', $places)->first();
+            if ($city) {
+                $postAds = $postAds->where('city_id', $city->id);
+            }
+        }
         return view('services', array('action' => $action, 'postAds' => $postAds->paginate(10)));
     }
 
@@ -61,9 +66,10 @@ class HomeController extends Controller
         return view('services', ['postAds' => $postAds]);
     }
 
-    public function escort_details()
+    public function escort_details($id)
     {
-        return view('escort_details');
+        $postAd = \App\Models\PostAd::with('country','state', 'city')->where('id', $id)->first();
+        return view('escort_details',compact('postAd'));
     }
     /**
      * Show the form for creating a new resource.
@@ -195,10 +201,7 @@ class HomeController extends Controller
         return response()->json($cities);
     }
 
-    public function just_check()
-    {
-        return view('just_check');
-    }
+  
     public function my_ads()
     {
         $user = auth()->user();

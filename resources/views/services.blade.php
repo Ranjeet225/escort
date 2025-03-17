@@ -36,7 +36,7 @@
                         <div class="position-relative h-100">
                             <a href="{{ route('escort-details', ['id' => $postAd->id]) }}">
                                 <img src="{{ asset(json_decode($postAd->images)[0]) }}"
-                                    class="img-fluid rounded-start h-100 w-100 object-fit-cover" alt="{{ $postAd->name }}">
+                                    class="img-fluid rounded-start h-100 w-100 object-fit-cover" alt="{{ $postAd->details }}">
                                 <span class="position-absolute top-0 start-0 bg-danger text-white px-1 small">NEW</span>
                             </a>
                         </div>
@@ -44,7 +44,7 @@
                     <div class="col-8 col-md-9 col-lg-10">
                         <div class="card-body py-2">
                             <h5 class="card-title mb-1">
-                                <a href="{{ route('escort-details', ['id' => $postAd->id]) }}" class="text-decoration-none">{{ $postAd->name }}</a>
+                                <a href="{{ route('escort-details', ['id' => $postAd->id]) }}" class="text-decoration-none">{{ $postAd->details }}</a>
                                 <span class="rating ms-2">
                                     <i class="fa-solid fa-star text-warning"></i>
                                     <i class="fa-solid fa-star text-warning"></i>
@@ -60,9 +60,6 @@
                                 <span class="text-success fw-bold">100% Cash Payment No Advance</span> •
                                 <span class="text-danger fw-bold">100% Satisfaction Verified Reviews</span> •
                                 <span class="text-primary">100% Call Talk or anything</span>
-                            </p>
-                            <p class="card-text small mb-2">
-                                {{ $postAd->details }}
                             </p>
                             <p class="card-text small mb-2">
                                 {!! Str::limit($postAd->description, 150) !!}

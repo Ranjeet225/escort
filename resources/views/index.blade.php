@@ -126,9 +126,9 @@
                         <p class="service-desc">Professional Call Girls for all occasions. Whether it's bridal,
                             party, or everyday Call Girls, our artists </p>
                         <div class="service-location">
-                            <a href="#" class="location-link">Call Girls<br>Bangalore</a>
-                            <a href="#" class="location-link">Call Girls<br>Mumbai</a>
-                            <a href="#" class="location-link">Call Girls<br>Delhi</a>
+                            <a href="{{url('/')}}/{{'call-girls'}}/{{'Bengaluru'}}" class="location-link">Call Girls<br>Bangalore</a>
+                            <a href="{{url('/')}}/{{'call-girls'}}/{{'mumbai'}}" class="location-link">Call Girls<br>Mumbai</a>
+                            <a href="{{url('/')}}/{{'call-girls'}}/{{'delhi'}}" class="location-link">Call Girls<br>Delhi</a>
                         </div>
                     </div>
                 </div>
@@ -149,9 +149,9 @@
                         <p class="service-desc">Professional Massages for all occasions. Whether it's bridal,
                             party, or everyday Massages, our artists </p>
                         <div class="service-location">
-                            <a href="#" class="location-link">Massages<br>Bangalore</a>
-                            <a href="#" class="location-link">Massages<br>Mumbai</a>
-                            <a href="#" class="location-link">Massages<br>Delhi</a>
+                            <a href="{{url('/')}}/{{'massages'}}/{{'Bengaluru'}}" class="location-link">Massages<br>Bangalore</a>
+                            <a href="{{url('/')}}/{{'massages'}}/{{'mumbai'}}" class="location-link">Massages<br>Mumbai</a>
+                            <a href="{{url('/')}}/{{'massages'}}/{{'delhi'}}" class="location-link">Massages<br>Delhi</a>
                         </div>
                     </div>
                 </div>
@@ -172,9 +172,9 @@
                         <p class="service-desc">Professional Male Escorts for all occasions. Whether it's bridal,
                             party, or everyday Male Escorts, our artists </p>
                         <div class="service-location">
-                            <a href="#" class="location-link">Male Escorts<br>Bangalore</a>
-                            <a href="#" class="location-link">Male Escorts<br>Mumbai</a>
-                            <a href="#" class="location-link">Male Escorts<br>Delhi</a>
+                            <a href="{{url('/')}}/{{'male-escorts'}}/{{'Bengaluru'}}" class="location-link">Male Escorts<br>Bangalore</a>
+                            <a href="{{url('/')}}/{{'male-escorts'}}/{{'mumbai'}}" class="location-link">Male Escorts<br>Mumbai</a>
+                            <a href="{{url('/')}}/{{'male-escorts'}}/{{'delhi'}}" class="location-link">Male Escorts<br>Delhi</a>
                         </div>
                     </div>
                 </div>
@@ -205,7 +205,7 @@
                             <i class="fas fa-cut text-danger me-2"></i> Call Girls
                         </h4>
                         <div class="d-grid gap-2 mt-3">
-                            <a href="{{ url('/call-girls/bangalore') }}" class="btn btn-outline-danger rounded-pill">Bangalore</a>
+                            <a href="{{ url('/call-girls/Bengaluru') }}" class="btn btn-outline-danger rounded-pill">Bangalore</a>
                             <a href="{{ url('/call-girls/mumbai') }}" class="btn btn-outline-danger rounded-pill">Mumbai</a>
                             <a href="{{ url('/call-girls/delhi') }}" class="btn btn-outline-danger rounded-pill">Delhi</a>
                             <a href="{{ url('/call-girls/hyderabad') }}" class="btn btn-outline-danger rounded-pill">Hyderabad</a>
@@ -224,7 +224,7 @@
                             <i class="fas fa-spa text-success me-2"></i> Massages
                         </h4>
                         <div class="d-grid gap-2 mt-3">
-                            <a href="{{ url('/massages/bangalore') }}" class="btn btn-outline-success rounded-pill">Bangalore</a>
+                            <a href="{{ url('/massages/Bengaluru') }}" class="btn btn-outline-success rounded-pill">Bangalore</a>
                             <a href="{{ url('/massages/mumbai') }}" class="btn btn-outline-success rounded-pill">Mumbai</a>
                             <a href="{{ url('/massages/delhi') }}" class="btn btn-outline-success rounded-pill">Delhi</a>
                             <a href="{{ url('/massages/hyderabad') }}" class="btn btn-outline-success rounded-pill">Hyderabad</a>
@@ -243,7 +243,7 @@
                             <i class="fas fa-hand-sparkles text-warning me-2"></i> Male Escorts
                         </h4>
                         <div class="d-grid gap-2 mt-3">
-                            <a href="{{ url('/male-escorts/bangalore') }}" class="btn btn-outline-warning rounded-pill">Bangalore</a>
+                            <a href="{{ url('/male-escorts/Bengaluru') }}" class="btn btn-outline-warning rounded-pill">Bangalore</a>
                             <a href="{{ url('/male-escorts/mumbai') }}" class="btn btn-outline-warning rounded-pill">Mumbai</a>
                             <a href="{{ url('/male-escorts/delhi') }}" class="btn btn-outline-warning rounded-pill">Delhi</a>
                             <a href="{{ url('/male-escorts/hyderabad') }}" class="btn btn-outline-warning rounded-pill">Hyderabad</a>
@@ -276,7 +276,7 @@
                         </p>
                             <p class="card-text flex-grow-1">{!! Str::limit($postAd->description, 100) !!}</p>
                             <div class="d-flex justify-content-between mt-auto">
-                                <a href="{{ url('post.ads.show', $postAd->id) }}" class="btn btn-outline-primary rounded-pill">View</a>
+                                <a href="{{ url('escort-details', $postAd->id) }}" class="btn btn-outline-primary rounded-pill">View</a>
                                 <ul class="list-group list-group-flush mb-0">
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         Age: {{ $postAd->age }}
