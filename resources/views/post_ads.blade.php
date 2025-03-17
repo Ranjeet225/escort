@@ -198,9 +198,9 @@
                     <label for="category">Category</label>
                     <select class="form-control @error('category') is-invalid @enderror" id="category" name="category" required>
                         <option value="">SELECT CATEGORY</option>
-                        <option value="Call Girls">Call Girls</option>
-                        <option value="Massages">Massages</option>
-                        <option value="Male Escorts">Male Escorts</option>
+                        <option value="call-girls">Call Girls</option>
+                        <option value="massages">Massages</option>
+                        <option value="male-escorts">Male Escorts</option>
                     </select>
                     @error('category')
                         <span class="invalid-feedback">{{ $message }}</span>
