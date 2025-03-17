@@ -11,18 +11,18 @@ class AdminController extends Controller
 {
     public function admin()
     {
-        // if (auth()->user()->role !== 'admin') {
-        //     abort(403, 'Unauthorized action.');
-        // }
+        if (auth()->user()->role !== 'admin') {
+            abort(403, 'Unauthorized action.');
+        }
         $postAds = PostAd::all();
         return view('admin', compact('postAds'));
     }
 
     public function admin_update_post_ads(Request $request)
     {
-        // if (auth()->user()->role !== 'admin') {
-        //     abort(403, 'Unauthorized action.');
-        // }
+        if (auth()->user()->role !== 'admin') {
+            abort(403, 'Unauthorized action.');
+        }
         $postAd = PostAd::find($request->id);
         $postAd->status = $request->status;
         $postAd->save();
@@ -31,9 +31,9 @@ class AdminController extends Controller
 
     public function manage_users()
     {
-        // if (auth()->user()->role !== 'admin') {
-        //     abort(403, 'Unauthorized action.');
-        // }
+        if (auth()->user()->role !== 'admin') {
+            abort(403, 'Unauthorized action.');
+        }
         $users = User::where(function ($query) {
             $query->whereNull('role')->orWhere('role', '!=', 'admin');
         })->get();
