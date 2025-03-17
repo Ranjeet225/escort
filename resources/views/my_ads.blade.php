@@ -31,9 +31,10 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         .ad-image {
-            width: 80px;
-            height: 80px;
+            width: 100%;
+            height: 250px;
             border-radius: 5px;
+            object-fit: cover;
         }
         .ad-status {
             color: red;
@@ -41,6 +42,16 @@
         }
         .ad-buttons .btn {
             margin-right: 5px;
+        }
+
+        @media (max-width: 767px) {
+            .ad-card {
+                flex-direction: column;
+            }
+            .ad-image {
+                width: 100%;
+                height: 150px;
+            }
         }
 </style>
 @endsection
@@ -53,7 +64,7 @@
                 @forelse ($postAds as $postAd)
                 <div class="ad-card d-flex flex-column flex-md-row align-items-start p-3">
                     @if ($postAd->images)
-                        <img src="{{ asset(json_decode($postAd->images)[0]) }}" alt="Ad Image" class="ad-image me-3" style="width: 40%; height: 60%; object-fit: cover;">
+                        <img src="{{ asset(json_decode($postAd->images)[0]) }}" alt="Ad Image" class="ad-image me-3" style="width: 100%; height: 250px; object-fit: cover;">
                     @endif
                     <div class="flex-grow-1">
                         <h5 class="mb-1">{{ $postAd->name }}</h5>
@@ -124,7 +135,5 @@
         })
     }
 </script>
-@endsection 
-
-
+@endsection
 
