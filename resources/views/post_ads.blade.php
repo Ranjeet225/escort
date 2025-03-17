@@ -102,6 +102,15 @@
             <h2><i class="fas fa-edit"></i> Post your ad</h2>
             <p>It's free and fast</p>
         </div>  
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <!-- Form Steps -->
         <form action="{{ route('post.ads.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
