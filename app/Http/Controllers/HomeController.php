@@ -161,7 +161,7 @@ class HomeController extends Controller
             'details' => 'required|string',
             'description' => 'required|string',
             'age' => 'required|integer',
-            'images.*' => 'required|image|max:100kb'
+            'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:100' 
         ]);
         $images = [];
         if ($request->hasFile('images')) {
@@ -241,7 +241,7 @@ class HomeController extends Controller
             'details' => 'required|string',
             'description' => 'required|string',
             'age' => 'required|integer',
-            'images.*' => 'image|max:100kb'
+            'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:100' 
         ]);
         $postAd = \App\Models\PostAd::find($request->id);
         $images = [];
