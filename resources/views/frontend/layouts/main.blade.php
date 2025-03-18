@@ -176,6 +176,7 @@
             .age-popup {
                 max-width: 90%;
                 padding: 20px;
+                margin: auto;
             }
 
             .age-popup h5 {

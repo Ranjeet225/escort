@@ -113,7 +113,7 @@
     </div>
 </div>
  <!-- Services Section -->
-<section class="services-section py-5">
+<section class="services-section py-md-5">
     <div class="container">
         <p class="text-center section-title mb-3">Premium Services in your city</p>
         <p class="text-center text-muted mb-5">Find your favorite beauty expert in Glamo</p>
@@ -202,7 +202,7 @@
 </section>
 
 <!-- Filter Sections -->
-<section class="filter-section py-5 bg-light">
+<section class="filter-section py-md-5 bg-light">
     <div class="container">
         <div class="row">
             <!-- Call Girls Filter -->
@@ -265,7 +265,7 @@
     </div>
 </section>
 
-<section class="py-5 bg-light">
+<section class="py-md-5 bg-light">
     <div class="container">
         <h2 class="text-center mb-4">Recent Searches</h2>
         <div class="row row-cols-1 g-3">
@@ -325,7 +325,7 @@
         </div>
     </div>
 </section>
-<section class="py-5">
+<section class="py-md-5 py-3">
     <div class="container">
         <div class="row">
             <div class="col-md-4 mb-4">
@@ -364,7 +364,7 @@
         </div>
     </div>
 </section>
-<section class="py-5">
+<section class="py-md-5">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
