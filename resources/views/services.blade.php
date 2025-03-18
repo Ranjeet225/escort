@@ -12,21 +12,23 @@
             <div class="col-12">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0 small">
-                        <li class="breadcrumb-item"><a href="#" class="text-decoration-none">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#" class="text-decoration-none text-capitalize">{{ $action ?? __('All Services') }}</a></li>
-                        <li class="breadcrumb-item"><a href="#" class="text-decoration-none text-capitalize">Escorts Services in  {{ $places ?? __('All Services') }}</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url('/') }}" class="text-decoration-none">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url($action ?? '#') }}" class="text-decoration-none text-capitalize">{{ $action ?? __('Services') }}</a></li>
+                        @if ($places)
+                            <li class="breadcrumb-item"><a href="#" class="text-decoration-none text-capitalize">Escorts Services in  {{ $places ?? __('All Services') }}</a></li>
+                        @endif
                     </ol>
                 </nav>
             </div>
         </div>
         <div id="collapseHeaderText" class="list-info mt-3 mb-3 card shadow border-0 collapse show txt_seo_2">
             <p class="mb-0 p-4">
-                <a href="{{ url('call-girls/bengaluru') }}" title="Bangalore Escorts">Bangalore Escorts</a> | 
-                <a href="{{ url('call-girls/delhi') }}" title="Delhi Escorts">Delhi Escorts</a> | 
-                <a href="{{ url('call-girls/mumbai') }}" title="Mumbai Escorts">Mumbai Escorts</a> | 
-                <a href="{{ url('call-girls/hyderabad') }}" title="Hyderabad Escorts">Hyderabad Escorts</a>|
-                <a href="{{ url('call-girls/pune') }}" title="Pune Escorts">Pune Escorts</a> |
-                <a href="{{ url('call-girls/noida') }}" title="Noida Escorts">Noida Escorts</a> | 
+                <a href="{{ url($action . '/bengaluru') }}" title="Bangalore Escorts">Bangalore Escorts</a> | 
+                <a href="{{ url($action . '/delhi') }}" title="Delhi Escorts">Delhi Escorts</a> | 
+                <a href="{{ url($action . '/mumbai') }}" title="Mumbai Escorts">Mumbai Escorts</a> | 
+                <a href="{{ url($action . '/hyderabad') }}" title="Hyderabad Escorts">Hyderabad Escorts</a>|
+                <a href="{{ url($action . '/pune') }}" title="Pune Escorts">Pune Escorts</a> |
+                <a href="{{ url($action . '/noida') }}" title="Noida Escorts">Noida Escorts</a> | 
             </p>
         </div>
         <!-- Listings -->
