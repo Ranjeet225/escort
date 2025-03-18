@@ -397,8 +397,21 @@ p {
         display: none !important;
     }
     .hero-content{
-        color: #ff1010d6 !important;
+        font-size: 1.2rem;
+        color: white !important;
+        /* height: 250px; */
+        margin-top:50px !important;
     }
+    /* .hero-content h1{
+        display: none;
+    }
+    .hero-content h2{
+        display: none;
+    } */
+    /* .search-bar{
+        margin-top:50px !important;
+    } */
+    
 }
 /* ===== HERO SECTION ===== */
 .hero-section {
