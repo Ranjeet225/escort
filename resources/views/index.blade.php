@@ -276,11 +276,17 @@
                             </div>
                             <div class="col-8 col-md-8 d-flex flex-column justify-content-center">
                                 <div class="card-body d-flex flex-column h-100 p-3 bg-light">
-                                    <h5 class="card-title mb-2 text-primary">{{ $postAd->details }}</h5>
+                                    <h6 class="card-title mb-2 text-primary">
                                     @php
                                         $userAgent = request()->header('User-Agent');
                                         $isMobile = preg_match('/(android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini)/i', $userAgent);
                                     @endphp
+                                        @if ($isMobile)
+                                            {!! Str::limit($postAd->details, 50) !!}
+                                        @else
+                                            {{ $postAd->details }}
+                                        @endif
+                                    </h6>
                                     <p class="card-text flex-grow-1 text-muted small">
                                         @if ($isMobile)
                                             {!! Str::limit($postAd->description, 80) !!} <br>
