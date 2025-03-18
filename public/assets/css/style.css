@@ -1000,10 +1000,12 @@ p {
     
     .hero-content h1 {
         font-size: 1.8rem;
+        color: white;
     }
     
     .hero-content h2 {
         font-size: 1.3rem;
+        color: white;
     }
     
     .section-title {
