@@ -299,10 +299,10 @@
                                         </span>
                                     </div>
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <a href="tel:{{ $postAd->phone }}" class="btn btn-sm btn-success px-5">
+                                        <a href="tel:{{ $postAd->phone }}" class="btn btn-sm btn-success px-4">
                                             Call
                                         </a>
-                                        <a href="https://wa.me/{{ $postAd->whatsapp }}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-success px-3">
+                                        <a href="https://wa.me/{{ $postAd->whatsapp }}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-success px-2">
                                             WhatsApp
                                         </a>
                                     </div>
