@@ -195,7 +195,7 @@
 
 <body>
     {{-- age confirmations  --}}
-    {{-- <div class="modal fade age-overlay mx-auto" id="ageVerificationModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+    <div class="modal fade age-overlay mx-auto" id="ageVerificationModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content age-popup">
                 <div class="modal-header border-0">
@@ -216,7 +216,7 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
     @include('frontend.layouts.header')
     @yield('content')
     @include('frontend.layouts.footer')
