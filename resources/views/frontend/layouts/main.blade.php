@@ -235,26 +235,24 @@
     <script src="{{asset('assets/js/main.js')}}"></script>
     <script>
      document.addEventListener("DOMContentLoaded", function () {
-        var ageModal = new bootstrap.Modal(document.getElementById('ageVerificationModal'));
-        ageModal.show();
+        if (localStorage.getItem('ageVerified') !== 'true') {
+            var ageModal = new bootstrap.Modal(document.getElementById('ageVerificationModal'));
+            ageModal.show();
 
-        document.getElementById('ageTermsAccept').addEventListener('change', function () {
-            document.getElementById('ageAcceptBtn').disabled = !this.checked;
-        });
+            document.getElementById('ageTermsAccept').addEventListener('change', function () {
+                document.getElementById('ageAcceptBtn').disabled = !this.checked;
+            });
 
-        document.getElementById('ageAcceptBtn').addEventListener('click', function () {
-            localStorage.setItem('ageVerified', 'true');
-            ageModal.hide();
-        });
+            document.getElementById('ageAcceptBtn').addEventListener('click', function () {
+                localStorage.setItem('ageVerified', 'true');
+                ageModal.hide();
+            });
 
-        document.getElementById('ageRejectBtn').addEventListener('click', function () {
-            window.location.href = "https://www.google.com";
-        });
-
-        if (localStorage.getItem('ageVerified') === 'true') {
-            ageModal.hide();
+            document.getElementById('ageRejectBtn').addEventListener('click', function () {
+                window.location.href = "https://www.google.com";
+            });
         }
-        });
+     });
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
