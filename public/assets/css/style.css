@@ -399,7 +399,8 @@ p {
     .hero-content{ 
         font-size: 1.2rem;
         color: white !important;
-        margin-top:50px !important;
+        margin-top:50px !important; 
+        
     }
     /* .hero-content h1{
         display: none;
