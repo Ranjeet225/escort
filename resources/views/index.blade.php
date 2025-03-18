@@ -122,13 +122,13 @@
                             <i class="fas fa-cut me-2"></i> Call Girls
                         </div>
                     </div>
-                    <div class="service-info p-3">
+                    <div class="service-info p-3 border-bottom">
                         <p class="service-desc">Professional Call Girls for all occasions. Whether it's bridal,
                             party, or everyday Call Girls, our artists </p>
                         <div class="service-location">
-                            <a href="{{url('/')}}/{{'call-girls'}}/{{'Bengaluru'}}" class="location-link">Call Girls<br>Bangalore</a>
-                            <a href="{{url('/')}}/{{'call-girls'}}/{{'mumbai'}}" class="location-link">Call Girls<br>Mumbai</a>
-                            <a href="{{url('/')}}/{{'call-girls'}}/{{'delhi'}}" class="location-link">Call Girls<br>Delhi</a>
+                            <a href="{{url('/')}}/{{'call-girls'}}/{{'Bengaluru'}}" class="location-link text-primary  ">Call Girls Bangalore</a>
+                            <a href="{{url('/')}}/{{'call-girls'}}/{{'mumbai'}}" class="location-link text-primary">Call Girls Mumbai</a>
+                            <a href="{{url('/')}}/{{'call-girls'}}/{{'delhi'}}" class="location-link text-primary">Call Girls Delhi</a>
                         </div>
                     </div>
                 </div>
@@ -149,9 +149,9 @@
                         <p class="service-desc">Professional Massages for all occasions. Whether it's bridal,
                             party, or everyday Massages, our artists </p>
                         <div class="service-location">
-                            <a href="{{url('/')}}/{{'massages'}}/{{'Bengaluru'}}" class="location-link">Massages<br>Bangalore</a>
-                            <a href="{{url('/')}}/{{'massages'}}/{{'mumbai'}}" class="location-link">Massages<br>Mumbai</a>
-                            <a href="{{url('/')}}/{{'massages'}}/{{'delhi'}}" class="location-link">Massages<br>Delhi</a>
+                            <a href="{{url('/')}}/{{'massages'}}/{{'Bengaluru'}}" class="location-link" style="color: blue">Massages Bangalore</a>
+                            <a href="{{url('/')}}/{{'massages'}}/{{'mumbai'}}" class="location-link" style="color: blue">Massages Mumbai</a>
+                            <a href="{{url('/')}}/{{'massages'}}/{{'delhi'}}" class="location-link" style="color: blue">Massages Delhi</a>
                         </div>
                     </div>
                 </div>
@@ -172,9 +172,9 @@
                         <p class="service-desc">Professional Male Escorts for all occasions. Whether it's bridal,
                             party, or everyday Male Escorts, our artists </p>
                         <div class="service-location">
-                            <a href="{{url('/')}}/{{'male-escorts'}}/{{'Bengaluru'}}" class="location-link">Male Escorts<br>Bangalore</a>
-                            <a href="{{url('/')}}/{{'male-escorts'}}/{{'mumbai'}}" class="location-link">Male Escorts<br>Mumbai</a>
-                            <a href="{{url('/')}}/{{'male-escorts'}}/{{'delhi'}}" class="location-link">Male Escorts<br>Delhi</a>
+                            <a href="{{url('/')}}/{{'male-escorts'}}/{{'Bengaluru'}}" class="location-link">Male Escorts Bangalore</a>
+                            <a href="{{url('/')}}/{{'male-escorts'}}/{{'mumbai'}}" class="location-link">Male Escorts Mumbai</a>
+                            <a href="{{url('/')}}/{{'male-escorts'}}/{{'delhi'}}" class="location-link">Male Escorts Delhi</a>
                         </div>
                     </div>
                 </div>
@@ -205,12 +205,12 @@
                             <i class="fas fa-cut text-danger me-2"></i> Call Girls
                         </h4>
                         <div class="d-grid gap-2 mt-3">
-                            <a href="{{ url('/call-girls/Bengaluru') }}" class="btn btn-outline-danger rounded-pill">Bangalore</a>
-                            <a href="{{ url('/call-girls/mumbai') }}" class="btn btn-outline-danger rounded-pill">Mumbai</a>
-                            <a href="{{ url('/call-girls/delhi') }}" class="btn btn-outline-danger rounded-pill">Delhi</a>
-                            <a href="{{ url('/call-girls/hyderabad') }}" class="btn btn-outline-danger rounded-pill">Hyderabad</a>
-                            <a href="{{ url('/call-girls/pune') }}" class="btn btn-outline-danger rounded-pill">Pune</a>
-                            <a href="{{ url('/call-girls/all-cities') }}" class="btn btn-outline-danger rounded-pill">All Cities</a>
+                            <a href="{{ url('/call-girls/Bengaluru') }}" class="btn btn-outline-primary rounded-pill">Bangalore</a>
+                            <a href="{{ url('/call-girls/mumbai') }}" class="btn btn-outline-primary rounded-pill">Mumbai</a>
+                            <a href="{{ url('/call-girls/delhi') }}" class="btn btn-outline-primary rounded-pill">Delhi</a>
+                            <a href="{{ url('/call-girls/hyderabad') }}" class="btn btn-outline-primary rounded-pill">Hyderabad</a>
+                            <a href="{{ url('/call-girls/pune') }}" class="btn btn-outline-primary rounded-pill">Pune</a>
+                            <a href="{{ url('/call-girls/all-cities') }}" class="btn btn-outline-primary rounded-pill">All Cities</a>
                         </div>
                     </div>
                 </div>
@@ -224,12 +224,12 @@
                             <i class="fas fa-spa text-success me-2"></i> Massages
                         </h4>
                         <div class="d-grid gap-2 mt-3">
-                            <a href="{{ url('/massages/Bengaluru') }}" class="btn btn-outline-success rounded-pill">Bangalore</a>
-                            <a href="{{ url('/massages/mumbai') }}" class="btn btn-outline-success rounded-pill">Mumbai</a>
-                            <a href="{{ url('/massages/delhi') }}" class="btn btn-outline-success rounded-pill">Delhi</a>
-                            <a href="{{ url('/massages/hyderabad') }}" class="btn btn-outline-success rounded-pill">Hyderabad</a>
-                            <a href="{{ url('/massages/pune') }}" class="btn btn-outline-success rounded-pill">Pune</a>
-                            <a href="{{ url('/massages/all-cities') }}" class="btn btn-outline-success rounded-pill">All Cities</a>
+                            <a href="{{ url('/massages/Bengaluru') }}" class="btn btn-outline-primary rounded-pill">Bangalore</a>
+                            <a href="{{ url('/massages/mumbai') }}" class="btn btn-outline-primary rounded-pill">Mumbai</a>
+                            <a href="{{ url('/massages/delhi') }}" class="btn btn-outline-primary rounded-pill">Delhi</a>
+                            <a href="{{ url('/massages/hyderabad') }}" class="btn btn-outline-primary rounded-pill">Hyderabad</a>
+                            <a href="{{ url('/massages/pune') }}" class="btn btn-outline-primary rounded-pill">Pune</a>
+                            <a href="{{ url('/massages/all-cities') }}" class="btn btn-outline-primary rounded-pill">All Cities</a>
                         </div>
                     </div>
                 </div>
@@ -240,15 +240,15 @@
                 <div class="card h-100 shadow-sm">
                     <div class="card-body text-center">
                         <h4 class="card-title">
-                            <i class="fas fa-hand-sparkles text-warning me-2"></i> Male Escorts
+                            <i class="fas fa-hand-sparkles text-primary me-2"></i> Male Escorts
                         </h4>
                         <div class="d-grid gap-2 mt-3">
-                            <a href="{{ url('/male-escorts/Bengaluru') }}" class="btn btn-outline-warning rounded-pill">Bangalore</a>
-                            <a href="{{ url('/male-escorts/mumbai') }}" class="btn btn-outline-warning rounded-pill">Mumbai</a>
-                            <a href="{{ url('/male-escorts/delhi') }}" class="btn btn-outline-warning rounded-pill">Delhi</a>
-                            <a href="{{ url('/male-escorts/hyderabad') }}" class="btn btn-outline-warning rounded-pill">Hyderabad</a>
-                            <a href="{{ url('/male-escorts/pune') }}" class="btn btn-outline-warning rounded-pill">Pune</a>
-                            <a href="{{ url('/male-escorts/all-cities') }}" class="btn btn-outline-warning rounded-pill">All Cities</a>
+                            <a href="{{ url('/male-escorts/Bengaluru') }}" class="btn btn-outline-primary rounded-pill">Bangalore</a>
+                            <a href="{{ url('/male-escorts/mumbai') }}" class="btn btn-outline-primary rounded-pill">Mumbai</a>
+                            <a href="{{ url('/male-escorts/delhi') }}" class="btn btn-outline-primary rounded-pill">Delhi</a>
+                            <a href="{{ url('/male-escorts/hyderabad') }}" class="btn btn-outline-primary rounded-pill">Hyderabad</a>
+                            <a href="{{ url('/male-escorts/pune') }}" class="btn btn-outline-primary rounded-pill">Pune</a>
+                            <a href="{{ url('/male-escorts/all-cities') }}" class="btn btn-outline-primary rounded-pill">All Cities</a>
                         </div>
                     </div>
                 </div>
@@ -260,28 +260,49 @@
 <section class="py-5 bg-light">
     <div class="container">
         <h2 class="text-center mb-4">Recent Searches</h2>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <div class="row row-cols-1 g-3">
             @foreach ($postAds as $postAd)
                 <div class="col">
-                    <div class="card h-100 shadow-sm rounded-3">
-                        <img src="{{ asset(json_decode($postAd->images)[0]) }}" 
-                             class="card-img-top img-fluid rounded-top" 
-                             alt="Model Image"
-                             onerror="this.onerror=null; this.src='{{ asset('assets/images/dummy.jpg') }}'"
-                             style="height: 250px; object-fit: cover;">
-                        <div class="card-body d-flex flex-column p-3">
-                            <h5 class="card-title">{{ $postAd->name }}</h5>
-                            <p class="card-text small mb-2">
-                                {{ $postAd->details }}
-                        </p>
-                            <p class="card-text flex-grow-1">{!! Str::limit($postAd->description, 100) !!}</p>
-                            <div class="d-flex justify-content-between mt-auto">
-                                <a href="{{ url('escort-details', $postAd->id) }}" class="btn btn-outline-primary rounded-pill">View</a>
-                                <ul class="list-group list-group-flush mb-0">
-                                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        Age: {{ $postAd->age }}
-                                    </li>
-                                </ul>
+                    <div class="card shadow-sm rounded-3 overflow-hidden" style="max-width: 100%;">
+                        <div class="row g-0">
+                            <div class="col-4 col-md-4">
+                                <a href="{{ url('escort-details/'.$postAd->id) }}">
+                                <img src="{{ asset(json_decode($postAd->images)[0]) }}" 
+                                     class="img-fluid w-100 h-100 object-fit-cover rounded-start" 
+                                     alt="Model Image"
+                                     onerror="this.onerror=null; this.src='{{ asset('assets/images/dummy.jpg') }}'"
+                                     style="max-height: 250px; max-width: 100%;">
+                                </a>
+                            </div>
+                            <div class="col-8 col-md-8 d-flex flex-column justify-content-center">
+                                <div class="card-body d-flex flex-column h-100 p-3 bg-light">
+                                    <h5 class="card-title mb-2 text-primary">{{ $postAd->details }}</h5>
+                                    @php
+                                        $userAgent = request()->header('User-Agent');
+                                        $isMobile = preg_match('/(android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini)/i', $userAgent);
+                                    @endphp
+                                    <p class="card-text flex-grow-1 text-muted small">
+                                        @if ($isMobile)
+                                            {!! Str::limit($postAd->description, 80) !!} <br>
+                                        @else
+                                            {!! Str::limit($postAd->description, 200) !!} <br>
+                                        @endif
+                                        <span class="badge bg-light text-dark">
+                                            <i class="fas fa-map-marker-alt me-2"></i>{{ $postAd->city->name }}
+                                        </span>
+                                        <span class="badge bg-light text-dark">
+                                            <i class="fas fa-calendar-alt me-1"></i>{{ $postAd->age }} years old
+                                        </span>
+                                    </p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <a href="tel:{{ $postAd->phone }}" class="btn btn-sm btn-success px-5">
+                                            Call
+                                        </a>
+                                        <a href="https://wa.me/{{ $postAd->whatsapp }}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-success px-3">
+                                            WhatsApp
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -290,7 +311,61 @@
         </div>
     </div>
 </section>
-
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body d-flex justify-content-center">
+                        <img src="{{ asset('assets/images/dummy/dummy1.jpg') }}" style="min-width: 76.3px;min-height: 76.3px;max-width: 84px; max-height: 84px;" class="img-fluid" alt="100% Real Photos">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-center text-primary">100% Real Photos</h5>
+                        <p class="card-text text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body d-flex justify-content-center">
+                        <img src="{{ asset('assets/images/dummy/dummy2.jpg') }}" style="min-width: 76.3px;min-height: 76.3px;max-width: 84px; max-height: 84px;" class="img-fluid" alt="100% Satisfaction Guarantee">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-center text-primary">100% Satisfaction Guarantee</h5>
+                        <p class="card-text text-muted">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body d-flex justify-content-center">
+                        <img src="{{ asset('assets/images/dummy/dummy3.jpg') }}" style="min-width: 76.3px;min-height: 76.3px;max-width: 84px; max-height: 84px;" class="img-fluid" alt="Call Girls Friendly">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-center text-primary">Call Girls Friendly</h5>
+                        <p class="card-text text-muted">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center text-primary">Explore Escort Services in India</h2>
+                <p class="text-center text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
+                <h3 class="text-center text-secondary">Why Choose Us?</h3>
+                <p class="text-center text-muted">We offer a wide range of services that cater to your needs. Our professional escorts are available 24/7 to ensure your satisfaction.</p>
+                <h3 class="text-center text-secondary">Our Promise</h3>
+                <p class="text-center text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Our services ensure confidentiality and professionalism.</p>
+                <h3 class="text-center text-secondary">Contact Us</h3>
+                <p class="text-center text-muted">For more information, contact us at any time. We are here to assist you with all your inquiries and needs.</p>
+            </div>
+        </div>
+    </div>
+</section>
 @endsection
 
 @section('js')

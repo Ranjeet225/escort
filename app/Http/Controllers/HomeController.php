@@ -23,9 +23,9 @@ class HomeController extends Controller
     public function services($action = null,$places = null)
     {
         $postAds = \App\Models\PostAd::with('country','state', 'city')->where('status','approved')->orderByDesc('id');
-        if ($action) {
-            $postAds = $postAds->where('category', 'like', '%'.$action.'%');
-        }
+        // if ($action) {
+        //     $postAds = $postAds->where('category', 'like', '%'.$action.'%');
+        // }
         if($places != 'all-cities') {
             $city = \DB::table('cities')->where('name', $places)->first();
             if ($city) {
@@ -161,7 +161,7 @@ class HomeController extends Controller
             'details' => 'required|string',
             'description' => 'required|string',
             'age' => 'required|integer',
-            'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:100' 
+            'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:200' 
         ]);
         $images = [];
         if ($request->hasFile('images')) {
@@ -241,7 +241,7 @@ class HomeController extends Controller
             'details' => 'required|string',
             'description' => 'required|string',
             'age' => 'required|integer',
-            'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:100' 
+            'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:200' 
         ]);
         $postAd = \App\Models\PostAd::find($request->id);
         $images = [];

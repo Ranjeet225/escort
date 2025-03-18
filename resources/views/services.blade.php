@@ -67,9 +67,8 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="small">
                                     <i class="fa-solid fa-location-dot text-muted me-1"></i> {{ $postAd->locality }} | {{ $postAd->city->name }} | {{ $postAd->state->name }} 
-                                    <span class="ms-2"><i class="fa-regular fa-clock text-muted me-1"></i> 10am-9pm</span>
                                 </div>
-                                <div>
+                                <div class="d-flex mt-2"> 
                                     <a href="tel:{{ $postAd->phone }}" class="btn btn-sm btn-success rounded-pill me-1">
                                         <i class="fa-solid fa-phone"></i>
                                     </a>
