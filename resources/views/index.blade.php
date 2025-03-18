@@ -287,7 +287,7 @@
                                             {{ $postAd->details }}
                                         @endif
                                     </h6>
-                                    <p class="card-text flex-grow-1 text-muted small">
+                                    <p class="flex-grow-1  small">
                                         @if ($isMobile)
                                             {!! Str::limit($postAd->description, 80) !!} <br>
                                         @else
