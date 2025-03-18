@@ -287,7 +287,7 @@
                                             {{ $postAd->details }}
                                         @endif
                                     </h6>
-                                    <p class="flex-grow-1  small">
+                                    <div>
                                         @if ($isMobile)
                                             {!! Str::limit($postAd->description, 80) !!} <br>
                                         @else
@@ -295,11 +295,9 @@
                                         @endif
                                         <span class="badge bg-light text-dark">
                                             <i class="fas fa-map-marker-alt me-2"></i>{{ $postAd->city->name }}
-                                        </span>
-                                        <span class="badge bg-light text-dark">
                                             <i class="fas fa-calendar-alt me-1"></i>{{ $postAd->age }} years old
                                         </span>
-                                    </p>
+                                    </div>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <a href="tel:{{ $postAd->phone }}" class="btn btn-sm btn-success px-5">
                                             Call
