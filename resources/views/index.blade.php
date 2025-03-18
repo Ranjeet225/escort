@@ -20,6 +20,14 @@
         </div>
     </div>
 </section>
+<!-- Mobile View -->
+<div class="d-lg-none text-center mt-4">
+    <a href="{{route('dashboard')}}" class="text-decoration-none">
+        <button class="btn btn-primary rounded-pill w-75">
+            <i class="fas fa-calendar-plus me-2"></i> POST YOUR AD
+        </button>
+    </a>
+</div>
    <!-- New Modal -->
 <div class="modal fade mt-4 pt-4" id="newModal" tabindex="-1" aria-labelledby="newModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -126,7 +134,7 @@
                         <p class="service-desc">Professional Call Girls for all occasions. Whether it's bridal,
                             party, or everyday Call Girls, our artists </p>
                         <div class="service-location">
-                            <a href="{{url('/')}}/{{'call-girls'}}/{{'Bengaluru'}}" class="location-link text-primary  ">Call Girls Bangalore</a>
+                            <a href="{{url('/')}}/{{'call-girls'}}/{{'bengaluru'}}" class="location-link text-primary  ">Call Girls Bangalore</a>
                             <a href="{{url('/')}}/{{'call-girls'}}/{{'mumbai'}}" class="location-link text-primary">Call Girls Mumbai</a>
                             <a href="{{url('/')}}/{{'call-girls'}}/{{'delhi'}}" class="location-link text-primary">Call Girls Delhi</a>
                         </div>
@@ -149,7 +157,7 @@
                         <p class="service-desc">Professional Massages for all occasions. Whether it's bridal,
                             party, or everyday Massages, our artists </p>
                         <div class="service-location">
-                            <a href="{{url('/')}}/{{'massages'}}/{{'Bengaluru'}}" class="location-link" style="color: blue">Massages Bangalore</a>
+                            <a href="{{url('/')}}/{{'massages'}}/{{'bengaluru'}}" class="location-link" style="color: blue">Massages Bangalore</a>
                             <a href="{{url('/')}}/{{'massages'}}/{{'mumbai'}}" class="location-link" style="color: blue">Massages Mumbai</a>
                             <a href="{{url('/')}}/{{'massages'}}/{{'delhi'}}" class="location-link" style="color: blue">Massages Delhi</a>
                         </div>
@@ -172,7 +180,7 @@
                         <p class="service-desc">Professional Male Escorts for all occasions. Whether it's bridal,
                             party, or everyday Male Escorts, our artists </p>
                         <div class="service-location">
-                            <a href="{{url('/')}}/{{'male-escorts'}}/{{'Bengaluru'}}" class="location-link">Male Escorts Bangalore</a>
+                            <a href="{{url('/')}}/{{'male-escorts'}}/{{'bengaluru'}}" class="location-link">Male Escorts Bangalore</a>
                             <a href="{{url('/')}}/{{'male-escorts'}}/{{'mumbai'}}" class="location-link">Male Escorts Mumbai</a>
                             <a href="{{url('/')}}/{{'male-escorts'}}/{{'delhi'}}" class="location-link">Male Escorts Delhi</a>
                         </div>
@@ -205,12 +213,12 @@
                             <i class="fas fa-cut text-danger me-2"></i> Call Girls
                         </h4>
                         <div class="d-grid gap-2 mt-3">
-                            <a href="{{ url('/call-girls/Bengaluru') }}" class="btn btn-outline-primary rounded-pill">Bangalore</a>
+                            <a href="{{ url('/call-girls/bengaluru') }}" class="btn btn-outline-primary rounded-pill">Bangalore</a>
                             <a href="{{ url('/call-girls/mumbai') }}" class="btn btn-outline-primary rounded-pill">Mumbai</a>
                             <a href="{{ url('/call-girls/delhi') }}" class="btn btn-outline-primary rounded-pill">Delhi</a>
                             <a href="{{ url('/call-girls/hyderabad') }}" class="btn btn-outline-primary rounded-pill">Hyderabad</a>
                             <a href="{{ url('/call-girls/pune') }}" class="btn btn-outline-primary rounded-pill">Pune</a>
-                            <a href="{{ url('/call-girls/all-cities') }}" class="btn btn-outline-primary rounded-pill">All Cities</a>
+                            <a href="{{ url('all-cities') }}" class="btn btn-outline-primary rounded-pill">All Cities</a>
                         </div>
                     </div>
                 </div>
@@ -224,12 +232,12 @@
                             <i class="fas fa-spa text-success me-2"></i> Massages
                         </h4>
                         <div class="d-grid gap-2 mt-3">
-                            <a href="{{ url('/massages/Bengaluru') }}" class="btn btn-outline-primary rounded-pill">Bangalore</a>
+                            <a href="{{ url('/massages/bengaluru') }}" class="btn btn-outline-primary rounded-pill">Bangalore</a>
                             <a href="{{ url('/massages/mumbai') }}" class="btn btn-outline-primary rounded-pill">Mumbai</a>
                             <a href="{{ url('/massages/delhi') }}" class="btn btn-outline-primary rounded-pill">Delhi</a>
                             <a href="{{ url('/massages/hyderabad') }}" class="btn btn-outline-primary rounded-pill">Hyderabad</a>
                             <a href="{{ url('/massages/pune') }}" class="btn btn-outline-primary rounded-pill">Pune</a>
-                            <a href="{{ url('/massages/all-cities') }}" class="btn btn-outline-primary rounded-pill">All Cities</a>
+                            <a href="{{ url('/all-cities') }}" class="btn btn-outline-primary rounded-pill">All Cities</a>
                         </div>
                     </div>
                 </div>
@@ -243,12 +251,12 @@
                             <i class="fas fa-hand-sparkles text-primary me-2"></i> Male Escorts
                         </h4>
                         <div class="d-grid gap-2 mt-3">
-                            <a href="{{ url('/male-escorts/Bengaluru') }}" class="btn btn-outline-primary rounded-pill">Bangalore</a>
+                            <a href="{{ url('/male-escorts/bengaluru') }}" class="btn btn-outline-primary rounded-pill">Bangalore</a>
                             <a href="{{ url('/male-escorts/mumbai') }}" class="btn btn-outline-primary rounded-pill">Mumbai</a>
                             <a href="{{ url('/male-escorts/delhi') }}" class="btn btn-outline-primary rounded-pill">Delhi</a>
                             <a href="{{ url('/male-escorts/hyderabad') }}" class="btn btn-outline-primary rounded-pill">Hyderabad</a>
                             <a href="{{ url('/male-escorts/pune') }}" class="btn btn-outline-primary rounded-pill">Pune</a>
-                            <a href="{{ url('/male-escorts/all-cities') }}" class="btn btn-outline-primary rounded-pill">All Cities</a>
+                            <a href="{{ url('/all-cities') }}" class="btn btn-outline-primary rounded-pill">All Cities</a>
                         </div>
                     </div>
                 </div>
@@ -298,12 +306,14 @@
                                             <i class="fas fa-calendar-alt me-1"></i>{{ $postAd->age }} years old
                                         </span>
                                     </div>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <a href="tel:{{ $postAd->phone }}" class="btn btn-sm btn-success px-4">
-                                            Call
+                                    <div class="d-flex align-items-center float-end">
+                                        <a href="tel:{{ $postAd->phone }}" class="btn btn-sm btn-success d-flex align-items-center px-3">
+                                            <i class="fas fa-phone-alt me-2"></i>
+                                            <span class="d-none d-md-inline">Call</span>
                                         </a>
-                                        <a href="https://wa.me/{{ $postAd->whatsapp }}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-success px-2">
-                                            WhatsApp
+                                        <a href="https://wa.me/{{ $postAd->whatsapp }}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-success d-flex align-items-center px-3 mx-2">
+                                            <i class="fab fa-whatsapp me-2"></i>
+                                            <span class="d-none d-md-inline">WhatsApp</span>
                                         </a>
                                     </div>
                                 </div>

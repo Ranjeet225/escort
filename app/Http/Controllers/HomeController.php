@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\State;
+use App\Models\City;
 use Illuminate\Container\Attributes\DB;
 use Illuminate\Http\Request;
 
@@ -32,7 +33,7 @@ class HomeController extends Controller
                 $postAds = $postAds->where('city_id', $city->id);
             }
         }
-        return view('services', array('action' => $action, 'postAds' => $postAds->paginate(10)));
+        return view('services', array('action' => $action, 'places' => $places, 'postAds' => $postAds->paginate(10)));
     }
 
     public function search(Request $request){
@@ -277,6 +278,16 @@ class HomeController extends Controller
     public function settings()
     {
         return view('settings');
+    }
+
+    public function all_cities()
+    {
+        $states = State::where('country_id', '101')->get();
+        $cities = City::whereIn('state_id', $states->pluck('id'))
+                ->inRandomOrder()
+                ->get()
+                ->groupBy('state_id');
+        return view('all_cities', compact('cities', 'states'));
     }
 
 

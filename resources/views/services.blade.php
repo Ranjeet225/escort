@@ -7,25 +7,28 @@
 @section('content')
     <!-- Main Content -->
     <div class="container py-3">
-        <div class="row">
+        @include('frontend.layouts.model')
+        <div class="row mb-2">
             <div class="col-12">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0 small">
                         <li class="breadcrumb-item"><a href="#" class="text-decoration-none">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#" class="text-decoration-none text-capitalize">{{'Services'}}</a></li>
+                        <li class="breadcrumb-item"><a href="#" class="text-decoration-none text-capitalize">{{ $action ?? __('All Services') }}</a></li>
+                        <li class="breadcrumb-item"><a href="#" class="text-decoration-none text-capitalize">Escorts Services in  {{ $places ?? __('All Services') }}</a></li>
                     </ol>
                 </nav>
             </div>
         </div>
-        @include('frontend.layouts.model')
-        <!-- Category Title -->
-        <div class="row mt-2">
-            <div class="col-12">
-                <h5 class="mb-0">Parlor Spa - Massage</h5>
-                <h6 class="text-muted mb-3">Exotic Massage India - Relaxed Massage</h6>
-            </div>
+        <div id="collapseHeaderText" class="list-info mt-3 mb-3 card shadow border-0 collapse show txt_seo_2">
+            <p class="mb-0 p-4">
+                <a href="{{ url('call-girls/bengaluru') }}" title="Bangalore Escorts">Bangalore Escorts</a> | 
+                <a href="{{ url('call-girls/delhi') }}" title="Delhi Escorts">Delhi Escorts</a> | 
+                <a href="{{ url('call-girls/mumbai') }}" title="Mumbai Escorts">Mumbai Escorts</a> | 
+                <a href="{{ url('call-girls/hyderabad') }}" title="Hyderabad Escorts">Hyderabad Escorts</a>|
+                <a href="{{ url('call-girls/pune') }}" title="Pune Escorts">Pune Escorts</a> |
+                <a href="{{ url('call-girls/noida') }}" title="Noida Escorts">Noida Escorts</a> | 
+            </p>
         </div>
-
         <!-- Listings -->
         <div class="listings">
             <!-- Listing 1 -->
@@ -45,13 +48,6 @@
                         <div class="card-body py-2">
                             <h5 class="card-title mb-1">
                                 <a href="{{ route('escort-details', ['id' => $postAd->id]) }}" class="text-decoration-none">{{ $postAd->details }}</a>
-                                <span class="rating ms-2">
-                                    <i class="fa-solid fa-star text-warning"></i>
-                                    <i class="fa-solid fa-star text-warning"></i>
-                                    <i class="fa-solid fa-star text-warning"></i>
-                                    <i class="fa-solid fa-star text-warning"></i>
-                                    <i class="fa-solid fa-star text-warning"></i>
-                                </span>
                                 <span class="verified-badge ms-2">
                                     <i class="fa-solid fa-circle-check text-success"></i> Verified
                                 </span>
@@ -86,6 +82,76 @@
             @endforelse
             <!-- Pagination -->
             {{ $postAds->links() }}
+        </div>
+        <div class="accordion mt-3 mb-3" id="accordionExample">
+            <div class="accordion-item text-center">
+                <h2 class="accordion-header text-center" id="headingOne">
+                    <button class="accordion-button {{ $action == 'call-girls' ? '' : 'collapsed' }}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="{{ $action == 'call-girls' ? 'true' : 'false' }}" aria-controls="collapseOne">
+                        Call Girls
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse {{ $action == 'call-girls' ? 'show' : '' }}" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <p class="mb-0 p-4 text-center">
+                            @foreach (['andhra-pradesh', 'assam', 'bihar', 'chandigarh', 'chhattisgarh', 'dadra-and-nagar-haveli', 'delhi', 'gujarat', 'haryana', 'jharkhand', 'karnataka', 'kerela', 'madhya-pradesh', 'maharashtra', 'nagaland', 'odisha', 'punjab', 'rajasthan', 'tamil-nadu', 'telangana', 'uttar-pradesh', 'uttarakhand', 'west-bengal'] as $state)
+                                <a href="{{ url('call-girls/'.$state) }}" title="{{ ucfirst(str_replace('-', ' ', $state)) }} Call Girls" class="badge rounded-pill bg-light text-dark me-2 p-2">{{ ucfirst(str_replace('-', ' ', $state)) }}</a>
+                            @endforeach
+                        </p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="accordion-item">
+                <h2 class="accordion-header text-center" id="headingTwo">
+                    <button class="accordion-button {{ $action == 'male-escort' ? '' : 'collapsed' }}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="{{ $action == 'male-escort' ? 'true' : 'false' }}" aria-controls="collapseTwo">
+                        Male Escort
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse {{ $action == 'male-escort' ? 'show' : '' }}" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <p class="mb-0 p-4 text-center">
+                            @foreach (['andhra-pradesh', 'assam', 'bihar', 'chandigarh', 'chhattisgarh', 'dadra-and-nagar-haveli', 'delhi', 'gujarat', 'haryana', 'jharkhand', 'karnataka', 'kerela', 'madhya-pradesh', 'maharashtra', 'nagaland', 'odisha', 'punjab', 'rajasthan', 'tamil-nadu', 'telangana', 'uttar-pradesh', 'uttarakhand', 'west-bengal'] as $state)
+                                <a href="{{ url('male-escort/'.$state) }}" title="{{ ucfirst(str_replace('-', ' ', $state)) }} Male Escort" class="badge rounded-pill bg-light text-dark me-2">{{ ucfirst(str_replace('-', ' ', $state)) }}</a>
+                            @endforeach
+                        </p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="accordion-item">
+                <h2 class="accordion-header text-center" id="headingThree">
+                    <button class="accordion-button {{ $action == 'massages' ? '' : 'collapsed' }}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="{{ $action == 'massages' ? 'true' : 'false' }}" aria-controls="collapseThree">
+                        Massages
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse {{ $action == 'massages' ? 'show' : '' }}" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <p class="mb-0 p-4 text-center">
+                            @foreach (['andhra-pradesh', 'assam', 'bihar', 'chandigarh', 'chhattisgarh', 'dadra-and-nagar-haveli', 'delhi', 'gujarat', 'haryana', 'jharkhand', 'karnataka', 'kerela', 'madhya-pradesh', 'maharashtra', 'nagaland', 'odisha', 'punjab', 'rajasthan', 'tamil-nadu', 'telangana', 'uttar-pradesh', 'uttarakhand', 'west-bengal'] as $state)
+                                <a href="{{ url('massages/'.$state) }}" title="{{ ucfirst(str_replace('-', ' ', $state)) }} Massages" class="badge rounded-pill bg-light text-dark me-2">{{ ucfirst(str_replace('-', ' ', $state)) }}</a>
+                            @endforeach
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="card border-0 mb-4">
+                    <div class="card-body p-4">
+                        <h2 class="mb-3">Exploring the World of Services</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et magna nec arcu blandit fringilla. Phasellus dictum, magna a facilisis ullamcorper, ligula ipsum fermentum elit, in bibendum nisl justo ac odio. Proin luctus, dui nec aliquet convallis, odio orci scelerisque purus, vitae facilisis ex felis nec felis. Nunc vehicula, mi a gravida vehicula, ligula lorem vehicula purus, ut facilisis urna nisl at nulla. Integer euismod, tortor sed posuere varius, justo mauris scelerisque mi, non efficitur arcu ligula at libero. Aliquam erat volutpat. Suspendisse potenti. In hac habitasse platea dictumst. Donec venenatis ex ut orci dapibus, non tincidunt libero facilisis. Curabitur vestibulum dolor vel auctor commodo.</p>
+
+                        <p>Vivamus non lacus et turpis fermentum feugiat. Aenean suscipit, magna sed auctor ullamcorper, nulla est rutrum nunc, sit amet euismod nunc est id tellus. Vestibulum tempus suscipit arcu, at vulputate lacus vulputate in. Quisque et justo at enim ultricies dapibus. Sed tincidunt diam sed felis facilisis, vitae interdum orci pellentesque. Nam at lorem vel dolor fringilla fermentum. Integer sagittis, nisi id interdum sagittis, nulla turpis tincidunt metus, nec varius mi libero nec velit. Duis malesuada, arcu ac ultricies dapibus, erat odio pulvinar nulla, et tempus metus sapien in libero.</p>
+
+                        <p>Morbi ac velit nec urna porttitor rutrum. Suspendisse nec magna eget lacus bibendum gravida. Curabitur sit amet nulla sed nisl lacinia viverra. Integer dapibus, quam ac scelerisque ultricies, libero arcu aliquam ipsum, et auctor libero odio eu augue. Phasellus eget venenatis tellus. Etiam a urna nec nisi vehicula aliquet vitae ac nunc. Pellentesque et eros at tortor suscipit porttitor ac euismod nunc. Fusce facilisis lacus vel blandit vehicula. Etiam non dignissim arcu. Fusce tincidunt dui nec metus pharetra, et posuere arcu consectetur.</p>
+
+                        <p>Nulla facilisi. Praesent dapibus, mauris ac fermentum volutpat, tortor purus hendrerit risus, a convallis nisl odio vel libero. In hac habitasse platea dictumst. Vivamus posuere urna id turpis facilisis, sit amet pharetra sem tempor. Suspendisse potenti. Mauris bibendum arcu non justo varius, non pulvinar ante lobortis. Donec bibendum urna vel nulla tempor fringilla. Morbi sed nulla nisi. Ut at nisl vitae nisl bibendum dapibus eget nec magna. Nunc sodales, erat quis vehicula congue, tellus lectus dictum libero, a placerat mi dolor nec libero.</p>
+
+                        <p>Cras in justo ac ante consectetur malesuada. Donec a leo nec odio tincidunt interdum. Pellentesque vehicula ligula nec finibus pulvinar. Phasellus elementum ligula a metus fringilla, nec vulputate eros varius. Curabitur mollis malesuada lectus, sit amet efficitur sapien aliquam nec. Sed euismod lacus nec magna sagittis, nec pretium dolor tristique. Nam at orci sit amet nisi varius pharetra. Sed ac sodales purus, et scelerisque risus. Nulla facilisi. Quisque in arcu id odio convallis malesuada. Donec semper, dui vitae ornare rutrum, ligula libero efficitur purus, vel suscipit nunc nunc ut velit.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

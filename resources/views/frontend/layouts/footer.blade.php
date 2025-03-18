@@ -34,7 +34,7 @@
             <div class="col-md-3 mb-4">
                 <h5 class="footer-title text-white">Get in Touch</h5>
                 <p class="text-muted small text-white">
-                    <i class="fas fa-map-marker-alt text-primary me-2"></i> Noida Sector 19, India
+                    <i class="fas fa-map-marker-alt text-primary me-2"></i> India
                 </p>
                 <p class="text-muted small text-white">
                     <i class="fas fa-envelope text-primary me-2"></i> <a href="mailto:info@vyo0.com" class="text-white">info@v60.com</a>

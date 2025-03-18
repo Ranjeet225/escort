@@ -1,4 +1,11 @@
  <!-- Header -->
+<style>
+    @media (max-width: 768px) {
+        .header {
+            background-color: #d2d0fd !important;
+        }
+    }
+</style>
  <header class="header">
      <div class="container">
          <div class="d-flex justify-content-between align-items-center py-2">

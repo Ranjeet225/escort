@@ -77,7 +77,7 @@
                             <button class="btn btn-danger" onclick="deletePostAd({{ $postAd->id }})">🗑️ Delete</button>
                             {{-- <button class="btn btn-primary">📢 Promote</button> --}}
                         </div>
-                        <p class="text-muted mt-2">Updated: {{ $postAd->updated_at->format('M d, Y, h:i A') }} | Total View: {{ $postAd->views }}</p>
+                        <p class="text-muted mt-2">Updated: {{ $postAd->updated_at->format('M d, Y, h:i A') }} </p>
                     </div>
                     <span class="badge bg-light text-dark">{{ $postAd->category }}</span>
                 </div>
