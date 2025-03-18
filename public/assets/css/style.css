@@ -396,10 +396,9 @@ p {
     .desktop-nav {
         display: none !important;
     }
-    .hero-content{
+    .hero-content{ 
         font-size: 1.2rem;
         color: white !important;
-        /* height: 250px; */
         margin-top:50px !important;
     }
     /* .hero-content h1{
