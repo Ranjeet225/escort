@@ -23,7 +23,7 @@
             </div>
         </div>
         <div class="list-info mt-3 mb-3 card shadow border-0 collapse show txt_seo_2">
-            <h3 class="mb-0 p-4">
+            <h3 class="mb-0 p-4 text-center">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et lacus vitae nulla eleifend ultrices
             </h3>
         </div>
