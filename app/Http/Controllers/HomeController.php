@@ -24,9 +24,9 @@ class HomeController extends Controller
     public function services($action = null,$places = null)
     {
         $postAds = \App\Models\PostAd::with('country','state', 'city')->where('status','approved')->orderByDesc('id');
-        // if ($action) {
-        //     $postAds = $postAds->where('category', 'like', '%'.$action.'%');
-        // }
+        if ($action) {
+            $postAds = $postAds->where('category', 'like', '%'.$action.'%');
+        }
         if($places != 'all-cities') {
             $city = \DB::table('cities')->where('name', $places)->first();
             if ($city) {

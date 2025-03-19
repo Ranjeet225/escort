@@ -15,21 +15,17 @@
                         <li class="breadcrumb-item"><a href="{{ url('/') }}" class="text-decoration-none">Home</a></li>
                         <li class="breadcrumb-item"><a href="{{ url($action ?? '#') }}" class="text-decoration-none text-capitalize">{{ $action ?? __('Services') }}</a></li>
                         @if ($places)
-                            <li class="breadcrumb-item"><a href="#" class="text-decoration-none text-capitalize">Escorts Services in  {{ $places ?? __('All Services') }}</a></li>
-                        @endif
+                            <li class="breadcrumb-item"><a href="#" class="text-decoration-none text-capitalize">
+                            {{ $action }} in  {{ $places ?? __('All Services') }}</a></li>
+                        @endif 
                     </ol>
                 </nav>
             </div>
         </div>
-        <div id="collapseHeaderText" class="list-info mt-3 mb-3 card shadow border-0 collapse show txt_seo_2">
-            <p class="mb-0 p-4">
-                <a href="{{ url($action . '/bengaluru') }}" title="Bangalore Escorts">Bangalore Escorts</a> | 
-                <a href="{{ url($action . '/delhi') }}" title="Delhi Escorts">Delhi Escorts</a> | 
-                <a href="{{ url($action . '/mumbai') }}" title="Mumbai Escorts">Mumbai Escorts</a> | 
-                <a href="{{ url($action . '/hyderabad') }}" title="Hyderabad Escorts">Hyderabad Escorts</a>|
-                <a href="{{ url($action . '/pune') }}" title="Pune Escorts">Pune Escorts</a> |
-                <a href="{{ url($action . '/noida') }}" title="Noida Escorts">Noida Escorts</a> | 
-            </p>
+        <div class="list-info mt-3 mb-3 card shadow border-0 collapse show txt_seo_2">
+            <h3 class="mb-0 p-4">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et lacus vitae nulla eleifend ultrices
+            </h3>
         </div>
         <!-- Listings -->
         <div class="listings">
@@ -55,9 +51,9 @@
                                 </span>
                             </h5>
                             <p class="card-text small mb-1">
-                                <span class="text-success fw-bold">100% Cash Payment No Advance</span> •
-                                <span class="text-danger fw-bold">100% Satisfaction Verified Reviews</span> •
-                                <span class="text-primary">100% Call Talk or anything</span>
+                                <span class="text-success fw-bold">Only Cash Payment No Advance</span> •
+                                {{-- <span class="text-danger fw-bold">100% Satisfaction Verified Reviews</span> • --}}
+                                {{-- <span class="text-primary">100% Call Talk or anything</span> --}}
                             </p>
                             <p class="card-text small mb-2">
                                 {!! Str::limit($postAd->description, 150) !!}
@@ -95,8 +91,8 @@
                 <div id="collapseOne" class="accordion-collapse collapse {{ $action == 'call-girls' ? 'show' : '' }}" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                         <p class="mb-0 p-4 text-center">
-                            @foreach (['andhra-pradesh', 'assam', 'bihar', 'chandigarh', 'chhattisgarh', 'dadra-and-nagar-haveli', 'delhi', 'gujarat', 'haryana', 'jharkhand', 'karnataka', 'kerela', 'madhya-pradesh', 'maharashtra', 'nagaland', 'odisha', 'punjab', 'rajasthan', 'tamil-nadu', 'telangana', 'uttar-pradesh', 'uttarakhand', 'west-bengal'] as $state)
-                                <a href="{{ url('call-girls/'.$state) }}" title="{{ ucfirst(str_replace('-', ' ', $state)) }} Call Girls" class="badge rounded-pill bg-light text-dark me-2 p-2">{{ ucfirst(str_replace('-', ' ', $state)) }}</a>
+                            @foreach (['mumbai', 'delhi', 'bengaluru', 'chennai', 'kolkata', 'hyderabad', 'ahmedabad', 'pune', 'jaipur', 'surat'] as $city)
+                                <a href="{{ url('call-girls/'.$city) }}" title="{{ ucfirst($city) }} Call Girls" class="badge rounded-pill bg-light text-dark me-2 p-2">{{ ucfirst($city) }}</a>
                             @endforeach
                         </p>
                     </div>
@@ -112,7 +108,7 @@
                 <div id="collapseTwo" class="accordion-collapse collapse {{ $action == 'male-escort' ? 'show' : '' }}" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                         <p class="mb-0 p-4 text-center">
-                            @foreach (['andhra-pradesh', 'assam', 'bihar', 'chandigarh', 'chhattisgarh', 'dadra-and-nagar-haveli', 'delhi', 'gujarat', 'haryana', 'jharkhand', 'karnataka', 'kerela', 'madhya-pradesh', 'maharashtra', 'nagaland', 'odisha', 'punjab', 'rajasthan', 'tamil-nadu', 'telangana', 'uttar-pradesh', 'uttarakhand', 'west-bengal'] as $state)
+                            @foreach (['mumbai', 'delhi', 'bengaluru', 'chennai', 'kolkata', 'hyderabad', 'ahmedabad', 'pune', 'jaipur', 'surat'] as $state)
                                 <a href="{{ url('male-escort/'.$state) }}" title="{{ ucfirst(str_replace('-', ' ', $state)) }} Male Escort" class="badge rounded-pill bg-light text-dark me-2">{{ ucfirst(str_replace('-', ' ', $state)) }}</a>
                             @endforeach
                         </p>
@@ -129,7 +125,7 @@
                 <div id="collapseThree" class="accordion-collapse collapse {{ $action == 'massages' ? 'show' : '' }}" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                         <p class="mb-0 p-4 text-center">
-                            @foreach (['andhra-pradesh', 'assam', 'bihar', 'chandigarh', 'chhattisgarh', 'dadra-and-nagar-haveli', 'delhi', 'gujarat', 'haryana', 'jharkhand', 'karnataka', 'kerela', 'madhya-pradesh', 'maharashtra', 'nagaland', 'odisha', 'punjab', 'rajasthan', 'tamil-nadu', 'telangana', 'uttar-pradesh', 'uttarakhand', 'west-bengal'] as $state)
+                            @foreach (['mumbai', 'delhi', 'bengaluru', 'chennai', 'kolkata', 'hyderabad', 'ahmedabad', 'pune', 'jaipur', 'surat'] as $state)
                                 <a href="{{ url('massages/'.$state) }}" title="{{ ucfirst(str_replace('-', ' ', $state)) }} Massages" class="badge rounded-pill bg-light text-dark me-2">{{ ucfirst(str_replace('-', ' ', $state)) }}</a>
                             @endforeach
                         </p>

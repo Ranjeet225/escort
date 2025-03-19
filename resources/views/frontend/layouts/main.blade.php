@@ -24,7 +24,6 @@
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0, 0, 0, 0.5);
         }
 
         .custom-modal-dialog {
@@ -81,7 +80,7 @@
 
         .custom-btn-primary {
             background-color: #007bff;
-            color: white;
+            color:black;
             border: none;
         }
 
@@ -122,7 +121,7 @@
             width: 90%;
             border-radius: 12px;
             background: #222;
-            color: #fff;
+            color: black;
             text-align: center;
             padding: 25px;
             box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
@@ -144,7 +143,7 @@
         /* Checkbox Styling */
         .age-checkbox label {
             font-size: 14px;
-            color: #ddd;
+            color: black;
             cursor: pointer;
         }
 
@@ -198,7 +197,7 @@
     {{-- age confirmations  --}}
     <div class="modal fade age-overlay mx-auto" id="ageVerificationModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content age-popup">
+            <div class="modal-content age-popup bg-white">
                 <div class="modal-header border-0">
                     <h5 class="modal-title">Please Confirm Your Age</h5>
                 </div>
