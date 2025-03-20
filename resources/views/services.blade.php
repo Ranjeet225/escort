@@ -14,7 +14,7 @@
                     <ol class="breadcrumb mb-0 small">
                         <li class="breadcrumb-item"><a href="{{ url('/') }}" class="text-decoration-none">Home</a></li>
                         <li class="breadcrumb-item"><a href="{{ url($action ?? '#') }}" class="text-decoration-none text-capitalize">{{ $action ?? __('Services') }}</a></li>
-                        @if ($places)
+                        @if (isset($places))
                             <li class="breadcrumb-item"><a href="#" class="text-decoration-none text-capitalize">
                             {{ $action }} in  {{ $places ?? __('All Services') }}</a></li>
                         @endif 
@@ -84,11 +84,11 @@
         <div class="accordion mt-3 mb-3" id="accordionExample">
             <div class="accordion-item text-center">
                 <h2 class="accordion-header text-center" id="headingOne">
-                    <button class="accordion-button {{ $action == 'call-girls' ? '' : 'collapsed' }}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="{{ $action == 'call-girls' ? 'true' : 'false' }}" aria-controls="collapseOne">
+                    <button class="accordion-button {{ isset($action) && $action == 'call-girls' ? '' : 'collapsed' }}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="{{ isset($action) && $action == 'call-girls' ? 'true' : 'false' }}" aria-controls="collapseOne">
                         Call Girls
                     </button>
                 </h2>
-                <div id="collapseOne" class="accordion-collapse collapse {{ $action == 'call-girls' ? 'show' : '' }}" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                         <p class="mb-0 p-4 text-center">
                             @foreach (['mumbai', 'delhi', 'bengaluru', 'chennai', 'kolkata', 'hyderabad', 'ahmedabad', 'pune', 'jaipur', 'surat'] as $city)
@@ -101,11 +101,11 @@
         
             <div class="accordion-item">
                 <h2 class="accordion-header text-center" id="headingTwo">
-                    <button class="accordion-button {{ $action == 'male-escort' ? '' : 'collapsed' }}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="{{ $action == 'male-escort' ? 'true' : 'false' }}" aria-controls="collapseTwo">
+                    <button class="accordion-button {{ isset($action) && $action == 'male-escort' ? '' : 'collapsed' }}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="{{ isset($action) && $action == 'male-escort' ? 'true' : 'false' }}" aria-controls="collapseTwo">
                         Male Escort
                     </button>
                 </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse {{ $action == 'male-escort' ? 'show' : '' }}" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div id="collapseTwo" class="accordion-collapse collapse {{ isset($action) && $action == 'male-escort' ? 'show' : '' }}" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                         <p class="mb-0 p-4 text-center">
                             @foreach (['mumbai', 'delhi', 'bengaluru', 'chennai', 'kolkata', 'hyderabad', 'ahmedabad', 'pune', 'jaipur', 'surat'] as $state)
@@ -118,11 +118,11 @@
         
             <div class="accordion-item">
                 <h2 class="accordion-header text-center" id="headingThree">
-                    <button class="accordion-button {{ $action == 'massages' ? '' : 'collapsed' }}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="{{ $action == 'massages' ? 'true' : 'false' }}" aria-controls="collapseThree">
+                    <button class="accordion-button {{ isset($action) && $action == 'massages' ? '' : 'collapsed' }}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="{{ isset($action) && $action == 'massages' ? 'true' : 'false' }}" aria-controls="collapseThree">
                         Massages
                     </button>
                 </h2>
-                <div id="collapseThree" class="accordion-collapse collapse {{ $action == 'massages' ? 'show' : '' }}" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                <div id="collapseThree" class="accordion-collapse collapse {{  isset($action) && $action == 'massages' ? 'show' : '' }}" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                         <p class="mb-0 p-4 text-center">
                             @foreach (['mumbai', 'delhi', 'bengaluru', 'chennai', 'kolkata', 'hyderabad', 'ahmedabad', 'pune', 'jaipur', 'surat'] as $state)

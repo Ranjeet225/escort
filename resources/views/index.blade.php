@@ -192,7 +192,7 @@
 </section>
 
 <!-- Welcome Section -->
-<section class="welcome-section py-4 bg-light">
+<section class="welcome-section py-md-4 bg-light">
     <div class="container">
         <p class="text-center mb-0">
             Welcome to Glamo, a leading beauty platform for premium salon services. Browse through thousands of
