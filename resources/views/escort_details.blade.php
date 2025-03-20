@@ -116,12 +116,15 @@
     <!-- Parlor Info -->
     <div class="row mb-3">
         <div class="col-6">
-            <span class="badge bg-light text-dark me-2"><i class="fas fa-star text-warning me-1"></i> 4.8 (50 ratings)</span>
+            {{-- <span class="badge bg-light text-dark me-2"><i class="fas fa-star text-warning me-1"></i> 4.8 (50 ratings)</span> --}}
             <span class="badge bg-light text-dark"><i class="fas fa-map-marker-alt me-1"></i> {{$postAd->city->name}}, {{$postAd->state->name}}</span>
         </div>
-        <div class="col-6 text-end">
-            <a href="tel:09999778843" class="btn btn-primary rounded-pill">
-                <i class="fas fa-phone-alt me-2"></i> {{$postAd->phone}}
+        <div class="col-6 text-end d-flex justify-content-end">
+            <a href="tel:{{$postAd->phone}}" class="btn btn-primary px-3">
+                <i class="fas fa-phone-alt me-2"></i> 
+            </a>
+            <a href="https://wa.me/{{$postAd->whatsapp}}" target="_blank" rel="noopener noreferrer" class="btn btn-success mx-2 px-3">
+                <i class="fab fa-whatsapp me-2"></i> 
             </a>
         </div>
     </div>
@@ -131,16 +134,16 @@
         <div class="col-12">
             <h1 class="fs-5 fw-bold">{{$postAd->details}}</h1>
             <div class="d-flex align-items-center">
-                <div class="me-2">
+                {{-- <div class="me-2">
                     <i class="fas fa-star text-warning"></i>
                     <i class="fas fa-star text-warning"></i>
                     <i class="fas fa-star text-warning"></i>
                     <i class="fas fa-star text-warning"></i>
                     <i class="fas fa-star-half-alt text-warning"></i>
-                </div>
-                <span class="text-success fw-bold">Pay After Service, 100% Satisfaction Guaranteed.</span>
+                </div> --}}
+                <span class="text-success fw-bold">Pay After Service</span>
             </div>
-            <p class="mb-0">Premium quality services with trained professionals. Real 100% satisfaction guaranteed.</p>
+            {{-- <p class="mb-0">Premium quality services with trained professionals. Real 100% satisfaction guaranteed.</p> --}}
         </div>
     </div>
 
@@ -314,7 +317,7 @@
     <div class="row mb-4">
         <div class="col-12 text-center">
             <h2 class="mb-4">Contact me</h2>
-            <a href="tel:09999778843" class="btn btn-primary rounded-pill px-4 py-2">
+            <a href="tel:09999778843" class="btn btn-primary px-4 py-2">
                 <i class="fas fa-phone-alt me-2"></i> {{ $postAd->phone }}
             </a>
         </div>

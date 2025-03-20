@@ -6,6 +6,7 @@ use App\Models\State;
 use App\Models\City;
 use Illuminate\Container\Attributes\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 use function PHPSTORM_META\map;
 
@@ -21,11 +22,21 @@ class HomeController extends Controller
         return view('index',compact('states', 'postAds'));
     }
 
-    public function services($action = null,$places = null)
+    public function services(Request $request,$action = null,$places = null)
     {
         $postAds = \App\Models\PostAd::with('country','state', 'city')->where('status','approved')->orderByDesc('id');
-        if ($action) {
-            $postAds = $postAds->where('category', 'like', '%'.$action.'%');
+         if ($action) {
+                $postAds = $postAds->where('category', 'like', '%'.$action.'%');
+         }
+         if ($request->has('q') && $request->q != '') {
+            $postAds = $postAds->where(function ($query) use ($request) {
+                $query->where('name', 'like', '%'.$request->search.'%')
+                    ->orWhere('phone', 'like', '%'.$request->search.'%')
+                    ->orWhere('whatsapp', 'like', '%'.$request->search.'%')
+                    ->orWhere('locality', 'like', '%'.$request->search.'%')
+                    ->orWhere('details', 'like', '%'.$request->search.'%')
+                    ->orWhere('description', 'like', '%'.$request->search.'%');
+            });
         }
         if($places != 'all-cities') {
             $city = \DB::table('cities')->where('name', $places)->first();
@@ -33,6 +44,7 @@ class HomeController extends Controller
                 $postAds = $postAds->where('city_id', $city->id);
             }
         }
+       
         return view('services', array('action' => $action, 'places' => $places, 'postAds' => $postAds->paginate(10)));
     }
 
@@ -67,9 +79,9 @@ class HomeController extends Controller
         return view('services', ['postAds' => $postAds]);
     }
 
-    public function escort_details($id)
+    public function escort_details($slug)
     {
-        $postAd = \App\Models\PostAd::with('country','state', 'city')->where('id', $id)->first();
+        $postAd = \App\Models\PostAd::with('country','state', 'city')->where('slug', 'like', '%'.$slug)->first();
         return view('escort_details',compact('postAd'));
     }
     /**
@@ -182,6 +194,7 @@ class HomeController extends Controller
         $postAd->locality = $request->locality;
         $postAd->category = $request->category;
         $postAd->details = $request->details;
+        $postAd->slug = Str::slug($request->details);
         $postAd->description = $request->description;
         $postAd->age = $request->age;
         $postAd->images = json_encode($images); 
@@ -263,6 +276,7 @@ class HomeController extends Controller
         $postAd->locality = $request->locality;   
         $postAd->category = $request->category;
         $postAd->details = $request->details;
+        $postAd->slug = Str::slug($request->details);
         $postAd->description = $request->description;
         $postAd->age = $request->age;
         $postAd->services = implode(',',$request->services);

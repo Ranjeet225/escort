@@ -35,7 +35,7 @@
                 <div class="row g-0">
                     <div class="col-4 col-md-3 col-lg-2">
                         <div class="position-relative h-100">
-                            <a href="{{ route('escort-details', ['id' => $postAd->id]) }}">
+                            <a href="{{ route('ads', ['slug' => $postAd->slug]) }}">
                                 <img src="{{ asset(json_decode($postAd->images)[0]) }}"
                                     class="img-fluid rounded-start h-100 w-100 object-fit-cover" alt="{{ $postAd->details }}">
                                 <span class="position-absolute top-0 start-0 bg-danger text-white px-1 small">NEW</span>
@@ -45,7 +45,7 @@
                     <div class="col-8 col-md-9 col-lg-10">
                         <div class="card-body py-2">
                             <h5 class="card-title mb-1">
-                                <a href="{{ route('escort-details', ['id' => $postAd->id]) }}" class="text-decoration-none">{{ $postAd->details }}</a>
+                                <a href="{{ route('ads', ['slug' => $postAd->slug]) }}" class="text-decoration-none">{{ $postAd->details }}</a>
                                 <span class="verified-badge ms-2">
                                     <i class="fa-solid fa-circle-check text-success"></i> Verified
                                 </span>

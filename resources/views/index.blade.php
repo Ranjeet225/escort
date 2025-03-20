@@ -73,7 +73,7 @@
                 </button>
             </div>
             <div class="modal-body mModalBody">
-                <form action="{{ route('search') }}" method="GET">
+                <form id="searchForm">
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <select class="form-control" id="category" name="category">
@@ -85,7 +85,7 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="mSearchInput">
-                                <input type="text" placeholder="Search .." name="search" class="form-control"
+                                <input type="text" placeholder="Search .." name="search" id="search" class="form-control"
                                     id="destination" name="destination">
                                 {{-- <i class="fas fa-search"></i> --}}
                             </div>
@@ -113,7 +113,7 @@
     </div>
 </div>
  <!-- Services Section -->
-<section class="services-section py-md-5">
+<section class="services-section py-md-3">
     <div class="container">
         <p class="text-center section-title mb-3">Premium Services in your city</p>
         <p class="text-center text-muted mb-5">Find your favorite beauty expert in Glamo</p>
@@ -202,7 +202,7 @@
 </section>
 
 <!-- Filter Sections -->
-<section class="filter-section py-md-5 bg-light">
+<section class="filter-section py-md-3 bg-light">
     <div class="container">
         <div class="row">
             <!-- Call Girls Filter -->
@@ -265,7 +265,7 @@
     </div>
 </section>
 
-<section class="py-md-5 bg-light">
+<section class="py-md-3 bg-light">
     <div class="container">
         <h2 class="text-center mb-4">Recent Searches</h2>
         <div class="row row-cols-1 g-3">
@@ -274,7 +274,7 @@
                     <div class="card shadow-sm rounded-3 overflow-hidden" style="max-width: 100%;">
                         <div class="row g-0">
                             <div class="col-4 col-md-4">
-                                <a href="{{ url('escort-details/'.$postAd->id) }}">
+                                <a href="{{ url('ads/'.$postAd->slug) }}">
                                 <img src="{{ asset(json_decode($postAd->images)[0]) }}" 
                                      class="img-fluid w-100 h-100 object-fit-cover rounded-start" 
                                      alt="Model Image"
@@ -325,7 +325,7 @@
         </div>
     </div>
 </section>
-<section class="py-md-5 py-3">
+<section class="py-md-3 py-3">
     <div class="container">
         <div class="row">
             <div class="col-md-4 mb-4">
@@ -364,7 +364,7 @@
         </div>
     </div>
 </section>
-<section class="py-md-5">
+<section class="py-md-3">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -394,10 +394,33 @@
                 data: {stateId: stateId},
                 success: function(data){
                     $.each(data, function(key, value){
-                        $('#city').append('<option value="' + value.id + '">' + value.name + '</option>');
+                        $('#city').append('<option value="' + value.name + '">' + value.name + '</option>');
                     });
                 }
             });
+        });
+    </script>
+    <script>
+        document.getElementById('searchForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Stop normal form submission
+            
+            let category = document.getElementById('category').value;
+            let city = document.getElementById('city').value.toLowerCase().replace(/\s+/g, '-'); // Format city
+            let searchQuery = document.getElementById('search').value;
+            
+            let url = '/';
+
+            if (category) {
+                url += category + '/';
+            }
+            if (city) {
+                url += city + '/';
+            }
+            if (searchQuery) {
+                url += '?q=' + encodeURIComponent(searchQuery);
+            }
+
+            window.location.href = url;
         });
     </script>
 @endsection

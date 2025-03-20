@@ -16,7 +16,7 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 // frontend 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/escort-details/{id}', [HomeController::class, 'escort_details'])->name('escort-details');
+Route::get('/ads/{slug}', [HomeController::class, 'escort_details'])->name('ads');
 Route::get('/terms-and-conditions', [HomeController::class, 'tmc'])->name('term-condition');
 Route::get('/privacy-policy', [HomeController::class, 'policy'])->name('policy');
 Route::get('/contact-us', [HomeController::class, 'contact'])->name('contact');

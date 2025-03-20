@@ -12,7 +12,7 @@
              <div class="logo">
                  <a href="{{url('/')}}" class="d-flex align-items-center">
                      <i class="fas fa-spa text-primary me-1 fs-1"></i>
-                     <span class="logo-text">Secure & Viom</span>
+                     <span class="logo-text">Okletn</span>
                  </a>
              </div>
 

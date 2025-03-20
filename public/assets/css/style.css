@@ -399,8 +399,10 @@ p {
     .hero-content{ 
         font-size: 1.2rem;
         color: white !important;
-        margin-top:50px !important; 
-        
+        margin-top:120px !important; 
+    }
+    .search-bar{
+        width: 80%;
     }
     /* .hero-content h1{
         display: none;
@@ -433,7 +435,7 @@ p {
 
 @media (max-width: 768px) {
     .hero-section::before {
-        background: url('../images/banner/trans1.jpg') center/cover no-repeat;
+        background: url('../images/banner/banner.jpg') center/cover no-repeat;
     }
 
 }

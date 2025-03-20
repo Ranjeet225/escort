@@ -213,10 +213,10 @@
                     <label for="category">Category</label>
                     <select class="form-control @error('category') is-invalid @enderror" id="category" name="category" required>
                         <option value="">SELECT CATEGORY</option>
-                        <option value="Call Girls" {{ $postAd->category == 'Call Girls' ? 'selected' : '' }}>Call Girls</option>
-                        <option value="Massages" {{ $postAd->category == 'Massages' ? 'selected' : '' }}>Massages</option>
-                        <option value="Male Escorts" {{ $postAd->category == 'Male Escorts' ? 'selected' : '' }}>Male Escorts</option>
-                        <option value="Transsexuals" {{ $postAd->category == 'Transsexuals' ? 'selected' : '' }}>Transsexuals</option>
+                        <option value="call-girls" {{ strtolower($postAd->category) == 'call-girls' ? 'selected' : '' }}>Call Girls</option>
+                        <option value="massages" {{ strtolower($postAd->category) == 'massages' ? 'selected' : '' }}>Massages</option>
+                        <option value="male-escorts" {{ strtolower($postAd->category) == 'male-escorts' ? 'selected' : '' }}>Male Escorts</option>
+                        <option value="transsexuals" {{ strtolower($postAd->category) == 'transsexuals' ? 'selected' : '' }}>Transsexuals</option>
                     </select>
                     @error('category')
                         <span class="invalid-feedback">{{ $message }}</span>

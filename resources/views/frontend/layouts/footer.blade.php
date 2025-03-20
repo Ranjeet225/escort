@@ -5,8 +5,8 @@
             <div class="col-md-3 ">
                 <div class="footer-logo mb-3">
                     <a href="index.html" class="d-flex align-items-center text-white">
-                        <i class="fas fa-spa text-primary me-2"></i>
-                        <span class="logo-text">Viom</span>
+                        <i class="fas fa-spa text-primary "></i>
+                        <span class="logo-text">Okletn</span>
                     </a>
                 </div>
                 <p class="text-muted small text-white">
