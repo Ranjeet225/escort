@@ -385,41 +385,25 @@
 @section('js')
     {{-- <script src="{{ asset('assets/js/dashboard.js') }}"></script> --}}
     <script>
-        $('#state').change(function(){
-            var stateId = $(this).val();
-            $('#city').find('option').not(':first').remove();
-            $.ajax({
-                url: "{{ route('get.cities') }}",
-                method: "GET",
-                data: {stateId: stateId},
-                success: function(data){
-                    $.each(data, function(key, value){
-                        $('#city').append('<option value="' + value.name + '">' + value.name + '</option>');
-                    });
-                }
+    $(document).ready(function () {
+        $('#state').change(function () {
+            let stateId = $(this).val();
+            $('#city').html('<option value="">Select City</option>'); // Reset city dropdown
+            $.get("{{ route('get.cities') }}", { stateId }, function (data) {
+                $.each(data, (key, value) => {
+                    $('#city').append(`<option value="${value.name}">${value.name}</option>`);
+                });
             });
         });
-    </script>
-    <script>
-        document.getElementById('searchForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Stop normal form submission
 
-            let category = document.getElementById('category').value;
-            let city = document.getElementById('city').value.toLowerCase().replace(/\s+/g, '-'); // Format city
-            let searchQuery = document.getElementById('search').value;
-            let baseUrl = window.location.origin; // Gets "https://dakuto.com"
-            let url = baseUrl + '/';
-            if (category) {
-                url += category + '/';
-            }
-            if (city) {
-                url += city + '/';
-            }
-            if (searchQuery) {
-                url += '?q=' + encodeURIComponent(searchQuery);
-            }
-        window.location.href = url;
+        $('#searchForm').submit(function (event) {
+            event.preventDefault();
+            let category = $('#category').val(),
+                city = $('#city').val().toLowerCase().replace(/\s+/g, '-'),
+                searchQuery = $('#search').val(),
+                url = `${window.location.origin}/${category ? category + '/' : ''}${city ? city + '/' : ''}${searchQuery ? '?q=' + encodeURIComponent(searchQuery) : ''}`;
+            window.location.assign(url);
+        });
     });
-
     </script>
 @endsection
