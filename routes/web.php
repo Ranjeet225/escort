@@ -63,9 +63,8 @@ Route::get('city', [HomeController::class, 'city'])->name('get.cities');
 Route::get('search',[HomeController::class,'search'])->name('search');
 Route::get('all-cities',[HomeController::class,'all_cities'])->name('all-cities');
 Route::get('/just-check', [HomeController::class, 'just_check'])->name('just-check');
-Route::get('/{action}', [HomeController::class, 'services'])->name('service');
-Route::get('/{action}/{places}', [HomeController::class, 'services'])->name('services');
-
+Route::get('/{action}', [HomeController::class, 'services'])->where('action', '^(?!public$).*')->name('service');
+Route::get('/{action}/{places}', [HomeController::class, 'services'])->where('action', '^(?!public$).*')->where('places', '^(?!public$).*')->name('services');
 
 
 
