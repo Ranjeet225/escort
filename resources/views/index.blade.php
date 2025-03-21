@@ -403,13 +403,12 @@
     <script>
         document.getElementById('searchForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Stop normal form submission
-            
+
             let category = document.getElementById('category').value;
             let city = document.getElementById('city').value.toLowerCase().replace(/\s+/g, '-'); // Format city
             let searchQuery = document.getElementById('search').value;
-            
-            let url = '/';
-
+            let baseUrl = window.location.origin; // Gets "https://dakuto.com"
+            let url = baseUrl + '/';
             if (category) {
                 url += category + '/';
             }
@@ -419,8 +418,8 @@
             if (searchQuery) {
                 url += '?q=' + encodeURIComponent(searchQuery);
             }
+        window.location.href = url;
+    });
 
-            window.location.href = url;
-        });
     </script>
 @endsection
