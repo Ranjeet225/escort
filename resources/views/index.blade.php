@@ -123,7 +123,7 @@
             <div>
                 <div class="service-card">
                     <div class="service-img">
-                        <a href="{{url('/')}}/{{'call-girls'}}">
+                        <a href="{{ route('service', ['action' => 'call-girls']) }}">
                             <img src="{{ asset('assets/images/blog/1.jpg') }}" alt=" Call Girls" class="img-fluid">
                         </a>
                         <div class="service-badge">
