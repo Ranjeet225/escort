@@ -95,7 +95,7 @@
         <div class="col-12">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#" class="text-decoration-none text-danger">← Back to search</a></li>
+                    <li class="breadcrumb-item"><a href="{{url()->previous()}}" class="text-decoration-none text-danger">← Back to search</a></li>
                 </ol>
             </nav>
         </div>
@@ -151,7 +151,7 @@
     <div class="row mb-4">
         @foreach (json_decode($postAd->images) as $image)
             <div class="col-12 col-md-4 mb-3">
-                <img src="{{ asset($image) }}" alt="Salon Interior" class="img-fluid rounded w-100" style="height: 90%; object-fit: cover;">
+                <img src="{{ asset('public/assets/' .$image) }}" alt="Salon Interior" class="img-fluid rounded w-100" style="height: 90%; object-fit: cover;">
             </div>
         @endforeach
     </div>

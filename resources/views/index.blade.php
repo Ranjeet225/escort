@@ -124,7 +124,7 @@
                 <div class="service-card">
                     <div class="service-img">
                         <a href="{{ route('service', ['action' => 'call-girls']) }}">
-                            <img src="{{ asset('assets/images/blog/1.jpg') }}" alt=" Call Girls" class="img-fluid">
+                            <img src="{{ asset('public/assets/images/blog/1.jpg') }}" alt=" Call Girls" class="img-fluid">
                         </a>
                         <div class="service-badge">
                             <i class="fas fa-cut me-2"></i> Call Girls
@@ -147,7 +147,7 @@
                 <div class="service-card">
                     <div class="service-img">
                         <a href="{{url('/')}}/{{'massages'}}">
-                            <img src="{{ asset('assets/images/banner/massages.jpeg') }}"  alt=" Massages" class="img-fluid">
+                            <img src="{{ asset('public/assets/images/banner/massages.jpeg') }}"  alt=" Massages" class="img-fluid">
                         </a>
                         <div class="service-badge">
                             <i class="fas fa-spa me-2"></i> Massages
@@ -170,7 +170,7 @@
                 <div class="service-card">
                     <div class="service-img">
                         <a href="{{url('/')}}/{{'male-escorts'}}">
-                            <img src="{{ asset('assets/images/banner/male.jpg') }}" alt=" Male Escorts" class="img-fluid">
+                            <img src="{{ asset('public/assets/images/banner/male.jpg') }}" alt=" Male Escorts" class="img-fluid">
                         </a>
                         <div class="service-badge">
                             <i class="fas fa-hand-sparkles me-2"></i> Male Escorts
@@ -237,7 +237,7 @@
                             <a href="{{ url('/massages/delhi') }}" class="btn btn-outline-primary rounded-pill">Delhi</a>
                             <a href="{{ url('/massages/hyderabad') }}" class="btn btn-outline-primary rounded-pill">Hyderabad</a>
                             <a href="{{ url('/massages/pune') }}" class="btn btn-outline-primary rounded-pill">Pune</a>
-                            <a href="{{ url('/all-cities') }}" class="btn btn-outline-primary rounded-pill">All Cities</a>
+                            <a href="{{ url('/massages/noida') }}" class="btn btn-outline-primary rounded-pill">Noida</a>
                         </div>
                     </div>
                 </div>
@@ -256,7 +256,7 @@
                             <a href="{{ url('/male-escorts/delhi') }}" class="btn btn-outline-primary rounded-pill">Delhi</a>
                             <a href="{{ url('/male-escorts/hyderabad') }}" class="btn btn-outline-primary rounded-pill">Hyderabad</a>
                             <a href="{{ url('/male-escorts/pune') }}" class="btn btn-outline-primary rounded-pill">Pune</a>
-                            <a href="{{ url('/all-cities') }}" class="btn btn-outline-primary rounded-pill">All Cities</a>
+                            <a href="{{ url('/male-escorts/noida') }}" class="btn btn-outline-primary rounded-pill">Noida</a>
                         </div>
                     </div>
                 </div>
@@ -275,10 +275,10 @@
                         <div class="row g-0">
                             <div class="col-4 col-md-4">
                                 <a href="{{ url('ads/'.$postAd->slug) }}">
-                                <img src="{{ asset(json_decode($postAd->images)[0]) }}" 
+                                    <img src="{{ asset('public/assets/' . json_decode($postAd->images)[0]) }}"
                                      class="img-fluid w-100 h-100 object-fit-cover rounded-start" 
                                      alt="Model Image"
-                                     onerror="this.onerror=null; this.src='{{ asset('assets/images/dummy.jpg') }}'"
+                                     
                                      style="max-height: 250px; max-width: 100%;">
                                 </a>
                             </div>
@@ -331,7 +331,7 @@
             <div class="col-md-4 mb-4">
                 <div class="card h-100">
                     <div class="card-body d-flex justify-content-center">
-                        <img src="{{ asset('assets/images/dummy/dummy1.jpg') }}" style="min-width: 76.3px;min-height: 76.3px;max-width: 84px; max-height: 84px;" class="img-fluid" alt="100% Real Photos">
+                        <img src="{{ asset('public/assets/images/dummy/dummy1.jpg') }}" style="min-width: 76.3px;min-height: 76.3px;max-width: 84px; max-height: 84px;" class="img-fluid" alt="100% Real Photos">
                     </div>
                     <div class="card-body">
                         <h5 class="card-title text-center text-primary">100% Real Photos</h5>
@@ -342,7 +342,7 @@
             <div class="col-md-4 mb-4">
                 <div class="card h-100">
                     <div class="card-body d-flex justify-content-center">
-                        <img src="{{ asset('assets/images/dummy/dummy2.jpg') }}" style="min-width: 76.3px;min-height: 76.3px;max-width: 84px; max-height: 84px;" class="img-fluid" alt="100% Satisfaction Guarantee">
+                        <img src="{{ asset('public/assets/images/dummy/dummy2.jpg') }}" style="min-width: 76.3px;min-height: 76.3px;max-width: 84px; max-height: 84px;" class="img-fluid" alt="100% Satisfaction Guarantee">
                     </div>
                     <div class="card-body">
                         <h5 class="card-title text-center text-primary">100% Satisfaction Guarantee</h5>
@@ -353,7 +353,7 @@
             <div class="col-md-4 mb-4">
                 <div class="card h-100">
                     <div class="card-body d-flex justify-content-center">
-                        <img src="{{ asset('assets/images/dummy/dummy3.jpg') }}" style="min-width: 76.3px;min-height: 76.3px;max-width: 84px; max-height: 84px;" class="img-fluid" alt="Call Girls Friendly">
+                        <img src="{{ asset('public/assets/images/dummy/dummy3.jpg') }}" style="min-width: 76.3px;min-height: 76.3px;max-width: 84px; max-height: 84px;" class="img-fluid" alt="Call Girls Friendly">
                     </div>
                     <div class="card-body">
                         <h5 class="card-title text-center text-primary">Call Girls Friendly</h5>

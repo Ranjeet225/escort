@@ -53,7 +53,7 @@
                         <h4 class="state-title text-primary">{{ $state->name }}</h4>
                         <div class="city-grid">
                             @foreach ($selectedCities as $city)
-                                <div class="city-item">{{ $city->name }}</div>
+                                <div class="city-item"><a href ="{{'call-girls'}}/{{$city->name}}">{{ $city->name }}</a> </div>
                             @endforeach
                         </div>
                     </div>

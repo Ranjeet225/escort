@@ -36,7 +36,7 @@
                     <div class="col-4 col-md-3 col-lg-2">
                         <div class="position-relative h-100">
                             <a href="{{ route('ads', ['slug' => $postAd->slug]) }}">
-                                <img src="{{ asset(json_decode($postAd->images)[0]) }}"
+                                <img src="{{ asset('public/assets/' . json_decode($postAd->images)[0]) }}"
                                     class="img-fluid rounded-start h-100 w-100 object-fit-cover" alt="{{ $postAd->details }}">
                                 <span class="position-absolute top-0 start-0 bg-danger text-white px-1 small">NEW</span>
                             </a>
@@ -81,58 +81,86 @@
             <!-- Pagination -->
             {{ $postAds->links() }}
         </div>
-        <div class="accordion mt-3 mb-3" id="accordionExample">
-            <div class="accordion-item text-center">
-                <h2 class="accordion-header text-center" id="headingOne">
-                    <button class="accordion-button {{ isset($action) && $action == 'call-girls' ? '' : 'collapsed' }}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="{{ isset($action) && $action == 'call-girls' ? 'true' : 'false' }}" aria-controls="collapseOne">
-                        Call Girls
-                    </button>
-                </h2>
-                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <p class="mb-0 p-4 text-center">
-                            @foreach (['mumbai', 'delhi', 'bengaluru', 'chennai', 'kolkata', 'hyderabad', 'ahmedabad', 'pune', 'jaipur', 'surat'] as $city)
-                                <a href="{{ url('call-girls/'.$city) }}" title="{{ ucfirst($city) }} Call Girls" class="badge rounded-pill bg-light text-dark me-2 p-2">{{ ucfirst($city) }}</a>
-                            @endforeach
-                        </p>
+       <div class="accordion mt-3 mb-3" id="accordionExample">
+    <!-- Call Girls Section -->
+                <div class="accordion-item text-center">
+                    <h2 class="accordion-header text-center" id="headingOne">
+                        <button class="accordion-button {{ isset($action) && $action == 'call-girls' ? '' : 'collapsed' }}" 
+                            type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" 
+                            aria-expanded="{{ isset($action) && $action == 'call-girls' ? 'true' : 'false' }}" 
+                            aria-controls="collapseOne">
+                            Call Girls
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse {{ isset($action) && $action == 'call-girls' ? 'show' : '' }}" 
+                        aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <p class="mb-0 p-4 text-center">
+                                @foreach (['mumbai', 'delhi', 'bengaluru', 'chennai', 'kolkata', 'hyderabad', 'ahmedabad', 'pune', 'jaipur', 'surat'] as $city)
+                                    <a href="{{ url('call-girls/'.$city) }}" 
+                                        title="{{ ucfirst($city) }} Call Girls" 
+                                        class="badge rounded-pill bg-light text-dark me-2 p-2">
+                                        {{ ucfirst($city) }}
+                                    </a>
+                                @endforeach
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Male Escort Section -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header text-center" id="headingTwo">
+                        <button class="accordion-button {{ isset($action) && $action == 'male-escorts' ? '' : 'collapsed' }}" 
+                            type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" 
+                            aria-expanded="{{ isset($action) && $action == 'male-escorts' ? 'true' : 'false' }}" 
+                            aria-controls="collapseTwo">
+                            Male Escort
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse {{ isset($action) && $action == 'male-escorts' ? 'show' : '' }}" 
+                        aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <p class="mb-0 p-4 text-center">
+                                @foreach (['mumbai', 'delhi', 'bengaluru', 'chennai', 'kolkata', 'hyderabad', 'ahmedabad', 'pune', 'jaipur', 'surat'] as $city)
+                                    <a href="{{ url('male-escorts/'.$city) }}" 
+                                        title="{{ ucfirst($city) }} Male Escort" 
+                                        class="badge rounded-pill bg-light text-dark me-2">
+                                        {{ ucfirst($city) }}
+                                    </a>
+                                @endforeach
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Massages Section -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header text-center" id="headingThree">
+                        <button class="accordion-button {{ isset($action) && $action == 'massages' ? '' : 'collapsed' }}" 
+                            type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" 
+                            aria-expanded="{{ isset($action) && $action == 'massages' ? 'true' : 'false' }}" 
+                            aria-controls="collapseThree">
+                            Massages
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse {{ isset($action) && $action == 'massages' ? 'show' : '' }}" 
+                        aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <p class="mb-0 p-4 text-center">
+                                @foreach (['mumbai', 'delhi', 'bengaluru', 'chennai', 'kolkata', 'hyderabad', 'ahmedabad', 'pune', 'jaipur', 'surat'] as $city)
+                                    <a href="{{ url('massages/'.$city) }}" 
+                                        title="{{ ucfirst($city) }} Massages" 
+                                        class="badge rounded-pill bg-light text-dark me-2">
+                                        {{ ucfirst($city) }}
+                                    </a>
+                                @endforeach
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
-        
-            <div class="accordion-item">
-                <h2 class="accordion-header text-center" id="headingTwo">
-                    <button class="accordion-button {{ isset($action) && $action == 'male-escort' ? '' : 'collapsed' }}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="{{ isset($action) && $action == 'male-escort' ? 'true' : 'false' }}" aria-controls="collapseTwo">
-                        Male Escort
-                    </button>
-                </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse {{ isset($action) && $action == 'male-escort' ? 'show' : '' }}" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <p class="mb-0 p-4 text-center">
-                            @foreach (['mumbai', 'delhi', 'bengaluru', 'chennai', 'kolkata', 'hyderabad', 'ahmedabad', 'pune', 'jaipur', 'surat'] as $state)
-                                <a href="{{ url('male-escort/'.$state) }}" title="{{ ucfirst(str_replace('-', ' ', $state)) }} Male Escort" class="badge rounded-pill bg-light text-dark me-2">{{ ucfirst(str_replace('-', ' ', $state)) }}</a>
-                            @endforeach
-                        </p>
-                    </div>
-                </div>
-            </div>
-        
-            <div class="accordion-item">
-                <h2 class="accordion-header text-center" id="headingThree">
-                    <button class="accordion-button {{ isset($action) && $action == 'massages' ? '' : 'collapsed' }}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="{{ isset($action) && $action == 'massages' ? 'true' : 'false' }}" aria-controls="collapseThree">
-                        Massages
-                    </button>
-                </h2>
-                <div id="collapseThree" class="accordion-collapse collapse {{  isset($action) && $action == 'massages' ? 'show' : '' }}" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <p class="mb-0 p-4 text-center">
-                            @foreach (['mumbai', 'delhi', 'bengaluru', 'chennai', 'kolkata', 'hyderabad', 'ahmedabad', 'pune', 'jaipur', 'surat'] as $state)
-                                <a href="{{ url('massages/'.$state) }}" title="{{ ucfirst(str_replace('-', ' ', $state)) }} Massages" class="badge rounded-pill bg-light text-dark me-2">{{ ucfirst(str_replace('-', ' ', $state)) }}</a>
-                            @endforeach
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <div class="row mt-5">
             <div class="col-12">
                 <div class="card border-0 mb-4">
@@ -164,10 +192,18 @@
             data: {stateId: stateId},
             success: function(data){
                 $.each(data, function(key, value){
-                    $('#city').append('<option value="' + value.id + '">' + value.name + '</option>');
+                    $('#city').append('<option value="' + value.name + '">' + value.name + '</option>');
                 });
             }
         });
+    });
+    $('#searchForm').submit(function (event) {
+            event.preventDefault();
+            let category = $('#category').val(),
+                city = $('#city').val().toLowerCase().replace(/\s+/g, '-'),
+                searchQuery = $('#search').val(),
+                url = `${window.location.origin}/${category ? category + '/' : ''}${city ? city + '/' : ''}${searchQuery ? '?q=' + encodeURIComponent(searchQuery) : ''}`;
+            window.location.assign(url);
     });
 </script>
 @endsection

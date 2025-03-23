@@ -64,7 +64,7 @@
                 @forelse ($postAds as $postAd)
                 <div class="ad-card d-flex flex-column flex-md-row align-items-start p-3">
                     @if ($postAd->images)
-                        <img src="{{ asset(json_decode($postAd->images)[0]) }}" alt="Ad Image" class="ad-image me-3" style="width: 100%; height: 250px; object-fit: cover;">
+                        <img src="{{ asset('/public/assets/' . json_decode($postAd->images)[0]) }}" alt="Ad Image" class="ad-image me-3" style="width: 100%; height: 250px; object-fit: cover;">
                     @endif
                     <div class="flex-grow-1">
                         <h5 class="mb-1">{{ $postAd->name }}</h5>

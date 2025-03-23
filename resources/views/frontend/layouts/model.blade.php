@@ -57,7 +57,7 @@
                 </button>
             </div>
             <div class="modal-body mModalBody">
-                <form id="mEscortSearchForm" action="{{ route('search') }}" method="GET">
+                <form id="searchForm">
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <select class="form-control" id="category" name="category">
@@ -69,7 +69,7 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="mSearchInput">
-                                <input type="text" placeholder="Search destinations..." class="form-control"
+                                <input type="text" placeholder="Search .." name="search" id="search" class="form-control"
                                     id="destination" name="destination">
                                 {{-- <i class="fas fa-search"></i> --}}
                             </div>
@@ -77,7 +77,7 @@
                         <div class="col-md-6 mb-3">
                             <select class="form-control" id="state" name="state">
                                 <option value="">All Regions</option>
-                                @foreach (App\Models\State::where('country_id', 101)->get() as $state)
+                                @foreach (App\Models\State::where('country_id',101)->get(); as $state)
                                     <option value="{{ $state->id }}">{{ $state->name }}</option>
                                 @endforeach
                             </select>

@@ -13,8 +13,13 @@ use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
-// frontend 
+use Illuminate\Support\Facades\Artisan;
 
+// frontend 
+Route::get('/clear-cache', function () {
+    Artisan::call('optimize:clear');
+    return "Cache cleared successfully!";
+});
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/ads/{slug}', [HomeController::class, 'escort_details'])->name('ads');
 Route::get('/terms-and-conditions', [HomeController::class, 'tmc'])->name('term-condition');
@@ -63,8 +68,8 @@ Route::get('city', [HomeController::class, 'city'])->name('get.cities');
 Route::get('search',[HomeController::class,'search'])->name('search');
 Route::get('all-cities',[HomeController::class,'all_cities'])->name('all-cities');
 Route::get('/just-check', [HomeController::class, 'just_check'])->name('just-check');
-Route::get('/{action}', [HomeController::class, 'services'])->where('action', '^(?!public$).*')->name('service');
-Route::get('/{action}/{places}', [HomeController::class, 'services'])->where('action', '^(?!public$).*')->where('places', '^(?!public$).*')->name('services');
+Route::get('/{action}', [HomeController::class, 'services'])->name('service');
+Route::get('/{action}/{places}', [HomeController::class, 'services'])->name('services');
 
 
 
